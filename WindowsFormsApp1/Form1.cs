@@ -69,21 +69,9 @@ namespace WindowsFormsApp1
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
-
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Form2());
-        }
-
-        private void btnRoom_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Form3());
-        }
-
-        private void btnIconAdd_Click(object sender, EventArgs e)
+        private void btnNewConference_Click(object sender, EventArgs e)
         {
             openChildForm(new Form2());
         }
@@ -96,8 +84,11 @@ namespace WindowsFormsApp1
             }
             GridFill();
         }
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Form3());
 
-
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -112,7 +103,8 @@ namespace WindowsFormsApp1
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
-                MySqlDataAdapter sqlDa = new MySqlDataAdapter("view_all", mysqlCon);
+                //MySqlDataAdapter sqlDa = new MySqlDataAdapter("view_all", mysqlCon);
+                MySqlDataAdapter sqlDa = new MySqlDataAdapter("sort_by_session", mysqlCon);
                 sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
                 DataTable dtblData = new DataTable();
                 sqlDa.Fill(dtblData);
@@ -122,5 +114,7 @@ namespace WindowsFormsApp1
             }
             
         }
+
+       
     }
 }
