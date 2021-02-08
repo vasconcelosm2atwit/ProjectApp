@@ -3,6 +3,7 @@ namespace WindowsFormsApp1
 {
     partial class Form1
     {
+        //
         /// <summary>
         /// Required designer variable.
         /// </summary>

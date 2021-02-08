@@ -42,5 +42,10 @@ namespace WindowsFormsApp1
             }
 
         }
+
+        private void allDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //
+        }
     }
 }

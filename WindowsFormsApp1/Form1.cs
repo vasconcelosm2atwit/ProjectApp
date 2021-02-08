@@ -78,6 +78,7 @@ namespace WindowsFormsApp1
 
         private void btnIconHome_Click(object sender, EventArgs e)
         {
+            //k
             if(activeForm != null)
             {
                 activeForm.Close();
