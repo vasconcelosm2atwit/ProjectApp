@@ -13,7 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class Form2 : Form
     {
-        string connectionString = @"Server=192.168.1.161;Database=projectconference;Uid=root;Pwd=SqlAdmin;";
+        //string connectionString = @"Server=192.168.1.161;Database=projectconference;Uid=root;Pwd=SqlAdmin;";
+        string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
         public Form2()
         {
             InitializeComponent();

@@ -106,7 +106,9 @@ namespace WindowsFormsApp1
 
         void GridFill()
         {
-           string connectionString = @"Server=192.168.1.161;Database=projectconference;Uid=root;Pwd=SqlAdmin;convert zero datetime=True";
+           //string connectionString = @"Server=192.168.1.161;Database=projectconference;Uid=root;Pwd=SqlAdmin;convert zero datetime=True";
+           string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
+
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
