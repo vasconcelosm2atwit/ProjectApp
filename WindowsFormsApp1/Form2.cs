@@ -43,7 +43,8 @@ namespace WindowsFormsApp1
                 // dateTimePicker1.Format = DateTimePickerFormat.Custom;
                 //dateTimePicker1.CustomFormat = "yyyy-mm-dd";
 
-                string dateString = dateTimePicker1.Value.Date.ToString("yyyy-mm-dd");
+                string dateString = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd");
+            
 
                 mysqlCon.Open();
                 MySqlCommand mySqlCmd = new MySqlCommand("new_conference",mysqlCon);
