@@ -78,7 +78,7 @@ namespace WindowsFormsApp1
 
         private void btnIconHome_Click(object sender, EventArgs e)
         {
-            // made this change to check it out
+            // changhting this
             if(activeForm != null)
             {
                 activeForm.Close();
