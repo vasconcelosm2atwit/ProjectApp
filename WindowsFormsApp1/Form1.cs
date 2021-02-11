@@ -11,16 +11,19 @@ using MySql.Data.MySqlClient;
 
 namespace WindowsFormsApp1
 {
-   
+
     public partial class Form1 : Form
     {
         private Form activeForm;
+        //string connectionString = @"Server=192.168.1.161;Database=projectconference;Uid=root;Pwd=SqlAdmin;convert zero datetime=True";
+        string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
+        Timer t = new Timer();
         public Form1()
         {
             InitializeComponent();
             GridFill();
 
-            
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -45,9 +48,53 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+        
+            comboBox.Items.Add("Session 1");
+            comboBox.Items.Add("Session 2");
+            comboBox.Items.Add("Session 3");
+            comboBox.Items.Add("Session 4");
+            comboBox.Items.Add("Session 5");
+            comboBox.Items.Add("Session 6");
+            comboBox.Items.Add("Session 7");
 
         }
+        private void t_Tick(object sender, EventArgs e)
+        {
+            int hh = DateTime.Now.Hour;
+            int mm = DateTime.Now.Minute;
+            int ss = DateTime.Now.Second;
 
+            string time = "";
+            if (hh < 10)
+            {
+                time += "0" + hh;
+            }
+            else
+            {
+                time += hh;
+            }
+            time += ":";
+            if (mm < 10)
+            {
+                time += "0" + mm;
+            }
+            else
+            {
+                time += mm;
+            }
+            time += ":";
+            if (ss < 10)
+            {
+                time += "0" + ss;
+            }
+            else
+            {
+                time += ss;
+            }
+
+            //label1.Text = time;
+
+        }
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -78,11 +125,13 @@ namespace WindowsFormsApp1
 
         private void btnIconHome_Click(object sender, EventArgs e)
         {
-            // made this change to check it out
-            if(activeForm != null)
+            if (activeForm != null)
             {
                 activeForm.Close();
             }
+            label2.Text = "Sessions";
+            comboBox.Text = "Sessions";
+
             GridFill();
         }
         private void btnShowAll_Click(object sender, EventArgs e)
@@ -98,8 +147,9 @@ namespace WindowsFormsApp1
 
         void GridFill()
         {
-           //string connectionString = @"Server=192.168.1.161;Database=projectconference;Uid=root;Pwd=SqlAdmin;convert zero datetime=True";
-           string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
+
+            //string connectionString = @"Server=192.168.1.161;Database=projectconference;Uid=root;Pwd=SqlAdmin;convert zero datetime=True";
+            //string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
 
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
@@ -111,11 +161,65 @@ namespace WindowsFormsApp1
                 sqlDa.Fill(dtblData);
                 allDataGrid.DataSource = dtblData;
 
+                int j = dtblData.Rows.Count + 30;
+
+                foreach(DataGridViewRow dr in allDataGrid.Rows)
+                {
+                    j += dr.Height;
+                }
+
+                allDataGrid.Height = j;
                 mysqlCon.Close();
             }
-            
+
         }
 
-       
-    }
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            GridFill2();
+        
+        }
+        
+              void GridFill2()
+              {
+
+                  string dateString = comboBox.SelectedItem.ToString();
+
+                     label2.Text = dateString;
+
+            using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
+                  {
+                      mysqlCon.Open();
+
+                      MySqlDataAdapter sqlDa = new MySqlDataAdapter("sessions", mysqlCon);
+                      sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+                      sqlDa.SelectCommand.Parameters.AddWithValue("_session", dateString);
+
+             
+                    DataTable dtblData = new DataTable();
+
+
+                      sqlDa.Fill(dtblData);
+                      allDataGrid.DataSource = dtblData;
+                int j = dtblData.Rows.Count + 30;
+
+                foreach (DataGridViewRow dr in allDataGrid.Rows)
+                {
+                    j += dr.Height;
+                }
+
+                allDataGrid.Height = j;
+                mysqlCon.Close();
+
+
+            }
+
+              }
+
+
+        }
 }
