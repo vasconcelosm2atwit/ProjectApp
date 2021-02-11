@@ -40,6 +40,8 @@ namespace WindowsFormsApp1
             this.lblSection = new System.Windows.Forms.Label();
             this.roomNumberTxt = new System.Windows.Forms.TextBox();
             this.lblRoom = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +55,8 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnSubmitForm);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.lblDate);
@@ -77,7 +81,7 @@ namespace WindowsFormsApp1
             this.btnSubmitForm.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleRight;
             this.btnSubmitForm.IconColor = System.Drawing.Color.White;
             this.btnSubmitForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSubmitForm.Location = new System.Drawing.Point(314, 267);
+            this.btnSubmitForm.Location = new System.Drawing.Point(314, 319);
             this.btnSubmitForm.Name = "btnSubmitForm";
             this.btnSubmitForm.Size = new System.Drawing.Size(200, 51);
             this.btnSubmitForm.TabIndex = 8;
@@ -88,7 +92,7 @@ namespace WindowsFormsApp1
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(314, 203);
+            this.dateTimePicker1.Location = new System.Drawing.Point(314, 255);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 7;
@@ -98,7 +102,7 @@ namespace WindowsFormsApp1
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDate.Location = new System.Drawing.Point(254, 202);
+            this.lblDate.Location = new System.Drawing.Point(254, 254);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(54, 23);
             this.lblDate.TabIndex = 6;
@@ -106,7 +110,7 @@ namespace WindowsFormsApp1
             // 
             // speakerText
             // 
-            this.speakerText.Location = new System.Drawing.Point(314, 153);
+            this.speakerText.Location = new System.Drawing.Point(314, 205);
             this.speakerText.Name = "speakerText";
             this.speakerText.Size = new System.Drawing.Size(200, 22);
             this.speakerText.TabIndex = 5;
@@ -116,7 +120,7 @@ namespace WindowsFormsApp1
             this.lblSpeaker.AutoSize = true;
             this.lblSpeaker.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSpeaker.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSpeaker.Location = new System.Drawing.Point(221, 151);
+            this.lblSpeaker.Location = new System.Drawing.Point(221, 203);
             this.lblSpeaker.Name = "lblSpeaker";
             this.lblSpeaker.Size = new System.Drawing.Size(87, 23);
             this.lblSpeaker.TabIndex = 4;
@@ -136,11 +140,11 @@ namespace WindowsFormsApp1
             this.lblSection.AutoSize = true;
             this.lblSection.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSection.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSection.Location = new System.Drawing.Point(166, 98);
+            this.lblSection.Location = new System.Drawing.Point(188, 98);
             this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(142, 23);
+            this.lblSection.Size = new System.Drawing.Size(120, 23);
             this.lblSection.TabIndex = 2;
-            this.lblSection.Text = "Section Time";
+            this.lblSection.Text = "Start Time";
             this.lblSection.Click += new System.EventHandler(this.label1_Click);
             // 
             // roomNumberTxt
@@ -162,6 +166,24 @@ namespace WindowsFormsApp1
             this.lblRoom.Size = new System.Drawing.Size(131, 23);
             this.lblRoom.TabIndex = 0;
             this.lblRoom.Text = "Room Number";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(210, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 23);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "End Time";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(314, 147);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 22);
+            this.textBox1.TabIndex = 10;
             // 
             // Form2
             // 
@@ -193,5 +215,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.TextBox speakerText;
         private System.Windows.Forms.Label lblSpeaker;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
