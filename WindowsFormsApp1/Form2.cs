@@ -35,10 +35,11 @@ namespace WindowsFormsApp1
         {
             using(MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
-
-                int roomNumber = Int16.Parse(roomNumberTxt.Text.Trim());
-                int sectionNumber = Int16.Parse(sectionText.Text.Trim());
+                string roomNumber = roomNumberTxt.Text.Trim();
+                string sectionNumber = sectionText.Text.Trim();
                 string speakerString = speakerText.Text.Trim();
+                int newRoom = 8;
+                int newSession = 7;
 
                 // dateTimePicker1.Format = DateTimePickerFormat.Custom;
                 //dateTimePicker1.CustomFormat = "yyyy-mm-dd";
@@ -47,12 +48,79 @@ namespace WindowsFormsApp1
             
 
                 mysqlCon.Open();
-                MySqlCommand mySqlCmd = new MySqlCommand("new_conference",mysqlCon);
+                MySqlCommand mySqlCmd = new MySqlCommand("new_conference1",mysqlCon);
+                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("add_new_room", mysqlCon);
                 mySqlCmd.CommandType = CommandType.StoredProcedure;
-                mySqlCmd.Parameters.AddWithValue("_room", roomNumber);
-                mySqlCmd.Parameters.AddWithValue("_section", sectionNumber);
-                mySqlCmd.Parameters.AddWithValue("_speaker", speakerString);
+                //mySqlCmd.Parameters.AddWithValue("_room", roomNumber);
+                //mySqlCmd.Parameters.AddWithValue("_section", sectionNumber);
+                //mySqlCmd.Parameters.AddWithValue("_speaker", speakerString);
                 mySqlCmd.Parameters.AddWithValue("_date", dateString);
+                switch (roomNumber)
+                {
+                    case "adams":
+                        mySqlCmd.Parameters.AddWithValue("_room", 1);
+                        break;
+                    case "washington":
+                        mySqlCmd.Parameters.AddWithValue("_room", 2);
+                        break;
+                    case "jefferson":
+                        mySqlCmd.Parameters.AddWithValue("_room", 3);
+                        break;
+                    case "monroe":
+                        mySqlCmd.Parameters.AddWithValue("_room", 4);
+                        break;
+                    case "breton":
+                    case "brentton woods":
+                        mySqlCmd.Parameters.AddWithValue("_room", 5);
+                        break;
+                    case "cranmore":
+                        mySqlCmd.Parameters.AddWithValue("_room", 6);
+                        break;
+                    case "jay":
+                    case "jay peak":
+                        mySqlCmd.Parameters.AddWithValue("_room", 7);
+                        break;
+                    case "cannon":
+                        mySqlCmd.Parameters.AddWithValue("_room", 8);
+                        break;
+                    default:
+                        mySqlCmd.Parameters.AddWithValue("_room", newRoom++);
+                        break;
+                }
+
+                /*if (speakerString == "test")
+                {
+
+                    mySqlCmd.Parameters.AddWithValue("_speaker", 1);
+                }*/
+
+                switch (sectionNumber)
+                {
+                    case "09:00":
+                        mySqlCmd.Parameters.AddWithValue("_session", 1);
+                        break;
+                    case "10:15":
+                        mySqlCmd.Parameters.AddWithValue("_session", 2);
+                        break;
+                    case "11:30":
+                        mySqlCmd.Parameters.AddWithValue("_session", 3);
+                        break;
+                    case "1:00":
+                        mySqlCmd.Parameters.AddWithValue("_session", 4);
+                        break;
+                    case "1:45":
+                        mySqlCmd.Parameters.AddWithValue("_session", 5);
+                        break;
+                    case "3:00":
+                        mySqlCmd.Parameters.AddWithValue("_session", 6);
+                        break;
+                    case "4:15":
+                        mySqlCmd.Parameters.AddWithValue("_session", 7);
+                        break;
+                    default:
+                        mySqlCmd.Parameters.AddWithValue("_session", newSession++);
+                        break;
+                }
                 Console.WriteLine(dateString);
                // mySqlCmd.Parameters.Add("_date", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
                 mySqlCmd.ExecuteNonQuery();
@@ -69,30 +137,12 @@ namespace WindowsFormsApp1
 
         private void roomNumberTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // If you want, you can allow decimal (float) numbers
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
+            
         }
 
         private void sectionText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // If you want, you can allow decimal (float) numbers
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
+            
         }
     }
 }
