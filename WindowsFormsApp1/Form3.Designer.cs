@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
         {
             this.allDataGrid = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.allDataGrid)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,19 +54,20 @@ namespace WindowsFormsApp1
             // panel1
             // 
             this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.searchTextBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(771, 175);
             this.panel1.TabIndex = 1;
             // 
-            // textBox1
+            // searchTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(218, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(301, 22);
-            this.textBox1.TabIndex = 0;
+            this.searchTextBox.Location = new System.Drawing.Point(218, 87);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(301, 22);
+            this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // iconButton1
             // 
@@ -80,6 +81,7 @@ namespace WindowsFormsApp1
             this.iconButton1.TabIndex = 1;
             this.iconButton1.Text = "iconButton1";
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // Form3
             // 
@@ -105,6 +107,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridView allDataGrid;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
     }
 }
