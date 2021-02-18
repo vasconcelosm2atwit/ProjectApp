@@ -50,6 +50,7 @@ namespace WindowsFormsApp1
                 mysqlCon.Open();
                 MySqlCommand mySqlCmd = new MySqlCommand("new_conference1",mysqlCon);
                 MySqlCommand mySqlCmdNewRooom = new MySqlCommand("add_new_room", mysqlCon);
+                /////asasasa
                 mySqlCmd.CommandType = CommandType.StoredProcedure;
                 //mySqlCmd.Parameters.AddWithValue("_room", roomNumber);
                 //mySqlCmd.Parameters.AddWithValue("_section", sectionNumber);

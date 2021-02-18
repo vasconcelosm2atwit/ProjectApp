@@ -31,6 +31,8 @@ namespace WindowsFormsApp1
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSubmitForm = new FontAwesome.Sharp.IconButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
@@ -40,8 +42,6 @@ namespace WindowsFormsApp1
             this.lblSection = new System.Windows.Forms.Label();
             this.roomNumberTxt = new System.Windows.Forms.TextBox();
             this.lblRoom = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,24 @@ namespace WindowsFormsApp1
             this.panel1.Size = new System.Drawing.Size(776, 540);
             this.panel1.TabIndex = 1;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(314, 145);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 22);
+            this.textBox1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(210, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 23);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "End Time";
+            // 
             // btnSubmitForm
             // 
             this.btnSubmitForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(13)))), ((int)(((byte)(79)))));
@@ -81,7 +99,7 @@ namespace WindowsFormsApp1
             this.btnSubmitForm.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleRight;
             this.btnSubmitForm.IconColor = System.Drawing.Color.White;
             this.btnSubmitForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSubmitForm.Location = new System.Drawing.Point(314, 300);
+            this.btnSubmitForm.Location = new System.Drawing.Point(314, 296);
             this.btnSubmitForm.Name = "btnSubmitForm";
             this.btnSubmitForm.Size = new System.Drawing.Size(200, 51);
             this.btnSubmitForm.TabIndex = 8;
@@ -166,24 +184,6 @@ namespace WindowsFormsApp1
             this.lblRoom.Size = new System.Drawing.Size(109, 23);
             this.lblRoom.TabIndex = 0;
             this.lblRoom.Text = "Room Name";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(314, 145);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(210, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 23);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "End Time";
             // 
             // Form2
             // 

@@ -139,7 +139,7 @@ namespace WindowsFormsApp1
         }
         private void btnShowAll_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form3());
+            openChildForm(new Form3()); ///asasa
 
         }
 
