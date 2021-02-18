@@ -43,11 +43,11 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.allDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.allDataGrid.Location = new System.Drawing.Point(0, 196);
+            this.allDataGrid.Location = new System.Drawing.Point(0, 182);
             this.allDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.allDataGrid.Name = "allDataGrid";
             this.allDataGrid.RowHeadersWidth = 51;
-            this.allDataGrid.Size = new System.Drawing.Size(771, 446);
+            this.allDataGrid.Size = new System.Drawing.Size(771, 460);
             this.allDataGrid.TabIndex = 0;
             this.allDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.allDataGrid_CellContentClick);
             // 
