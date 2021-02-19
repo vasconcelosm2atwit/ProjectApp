@@ -146,6 +146,7 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Comments here
+            // thanks Mimi git hub is completed
             //bottomChildForm(new Form4());
             if(activeF)
                 BottomPanel.Visible = true;
