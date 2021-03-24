@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace WindowsFormsApp1
+namespace CodeCampApp
 {
-    public partial class Form3 : Form
+    public partial class Session : Form
     {
-        public Form3()
+        public Session()
         {
             InitializeComponent();
             GridFill();
@@ -35,8 +35,8 @@ namespace WindowsFormsApp1
                 MySqlDataAdapter sqlDa = new MySqlDataAdapter("view_all", mysqlCon);
                 sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
                 DataTable dtblData = new DataTable();
-                sqlDa.Fill(dtblData);
-                allDataGrid.DataSource = dtblData;
+                //sqlDa.Fill(dtblData);
+               // allDataGrid.DataSource = dtblData;
 
                 mysqlCon.Close(); // closing app
             }
@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
                 sqlDa.SelectCommand.Parameters.AddWithValue("_find_room", room);
                 DataTable dtblData = new DataTable();
                 sqlDa.Fill(dtblData);
-                allDataGrid.DataSource = dtblData;
+                //allDataGrid.DataSource = dtblData;
 
                 mysqlCon.Close();
             }
@@ -78,9 +78,9 @@ namespace WindowsFormsApp1
         private void iconButton1_Click(object sender, EventArgs e)
         {
             // BOX NAME IS SEARCHTEXTBOX
-            string roomName = searchTextBox.Text;
+           // string roomName = searchTextBox.Text;
 
-            GridFind("find_room",roomName);
+          //  GridFind("find_room",roomName);
         }
     }
 }

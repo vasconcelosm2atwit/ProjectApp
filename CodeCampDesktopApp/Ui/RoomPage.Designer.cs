@@ -1,7 +1,7 @@
 ﻿
-namespace WindowsFormsApp1
+namespace CodeCampApp
 {
-    partial class Form2
+    partial class RoomPage
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,7 @@ namespace WindowsFormsApp1
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSubmitForm = new FontAwesome.Sharp.IconButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.speakerText = new System.Windows.Forms.TextBox();
-            this.lblSpeaker = new System.Windows.Forms.Label();
+            this.SubmitBtn = new System.Windows.Forms.Button();
             this.sectionText = new System.Windows.Forms.TextBox();
             this.lblSection = new System.Windows.Forms.Label();
             this.roomNumberTxt = new System.Windows.Forms.TextBox();
@@ -55,13 +49,7 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnSubmitForm);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.speakerText);
-            this.panel1.Controls.Add(this.lblSpeaker);
+            this.panel1.Controls.Add(this.SubmitBtn);
             this.panel1.Controls.Add(this.sectionText);
             this.panel1.Controls.Add(this.lblSection);
             this.panel1.Controls.Add(this.roomNumberTxt);
@@ -72,77 +60,15 @@ namespace WindowsFormsApp1
             this.panel1.Size = new System.Drawing.Size(776, 540);
             this.panel1.TabIndex = 1;
             // 
-            // textBox1
+            // SubmitBtn
             // 
-            this.textBox1.Location = new System.Drawing.Point(314, 145);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(210, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 23);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "End Time";
-            // 
-            // btnSubmitForm
-            // 
-            this.btnSubmitForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(13)))), ((int)(((byte)(79)))));
-            this.btnSubmitForm.FlatAppearance.BorderSize = 0;
-            this.btnSubmitForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmitForm.ForeColor = System.Drawing.Color.White;
-            this.btnSubmitForm.IconChar = FontAwesome.Sharp.IconChar.ArrowAltCircleRight;
-            this.btnSubmitForm.IconColor = System.Drawing.Color.White;
-            this.btnSubmitForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSubmitForm.Location = new System.Drawing.Point(314, 296);
-            this.btnSubmitForm.Name = "btnSubmitForm";
-            this.btnSubmitForm.Size = new System.Drawing.Size(200, 51);
-            this.btnSubmitForm.TabIndex = 8;
-            this.btnSubmitForm.Text = "Submit";
-            this.btnSubmitForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSubmitForm.UseVisualStyleBackColor = false;
-            this.btnSubmitForm.Click += new System.EventHandler(this.btnSubmitForm_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(314, 236);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 7;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDate.Location = new System.Drawing.Point(254, 235);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(54, 23);
-            this.lblDate.TabIndex = 6;
-            this.lblDate.Text = "Date";
-            // 
-            // speakerText
-            // 
-            this.speakerText.Location = new System.Drawing.Point(314, 186);
-            this.speakerText.Name = "speakerText";
-            this.speakerText.Size = new System.Drawing.Size(200, 22);
-            this.speakerText.TabIndex = 5;
-            // 
-            // lblSpeaker
-            // 
-            this.lblSpeaker.AutoSize = true;
-            this.lblSpeaker.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpeaker.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSpeaker.Location = new System.Drawing.Point(221, 184);
-            this.lblSpeaker.Name = "lblSpeaker";
-            this.lblSpeaker.Size = new System.Drawing.Size(87, 23);
-            this.lblSpeaker.TabIndex = 4;
-            this.lblSpeaker.Text = "Speaker";
+            this.SubmitBtn.Location = new System.Drawing.Point(376, 149);
+            this.SubmitBtn.Name = "SubmitBtn";
+            this.SubmitBtn.Size = new System.Drawing.Size(75, 23);
+            this.SubmitBtn.TabIndex = 11;
+            this.SubmitBtn.Text = "Submit";
+            this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
             // sectionText
             // 
@@ -158,11 +84,11 @@ namespace WindowsFormsApp1
             this.lblSection.AutoSize = true;
             this.lblSection.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSection.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSection.Location = new System.Drawing.Point(188, 98);
+            this.lblSection.Location = new System.Drawing.Point(210, 98);
             this.lblSection.Name = "lblSection";
-            this.lblSection.Size = new System.Drawing.Size(120, 23);
+            this.lblSection.Size = new System.Drawing.Size(98, 23);
             this.lblSection.TabIndex = 2;
-            this.lblSection.Text = "Start Time";
+            this.lblSection.Text = "Capacity";
             this.lblSection.Click += new System.EventHandler(this.label1_Click);
             // 
             // roomNumberTxt
@@ -185,7 +111,7 @@ namespace WindowsFormsApp1
             this.lblRoom.TabIndex = 0;
             this.lblRoom.Text = "Room Name";
             // 
-            // Form2
+            // RoomPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,7 +120,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form2";
+            this.Name = "RoomPage";
             this.Text = "Form2";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -210,12 +136,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label lblSection;
         private System.Windows.Forms.TextBox roomNumberTxt;
         private System.Windows.Forms.Label lblRoom;
-        private FontAwesome.Sharp.IconButton btnSubmitForm;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.TextBox speakerText;
-        private System.Windows.Forms.Label lblSpeaker;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button SubmitBtn;
     }
 }
