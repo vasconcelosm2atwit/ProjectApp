@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace CodeCampApp
 {
-    public partial class Form4 : Form
+    public partial class TimeSlotPage : Form
     {
-        public Form4()
+        public TimeSlotPage()
         {
             InitializeComponent();
-        }
-
-        private void fillAll()
-        {
-            
         }
     }
 }
