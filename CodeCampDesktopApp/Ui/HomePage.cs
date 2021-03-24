@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,20 +32,24 @@ namespace CodeCampApp
             {
                 mysqlCon.Open();
                 //MySqlDataAdapter sqlDa = new MySqlDataAdapter("view_all", mysqlCon);
-                MySqlDataAdapter sqlDa = new MySqlDataAdapter("testProcedure_show_all_rooms", mysqlCon);
-                sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
-                DataTable dtblData = new DataTable();
-                sqlDa.Fill(dtblData);
-                dataGrid.DataSource = dtblData;
+                /* MySqlDataAdapter sqlDa = new MySqlDataAdapter("testProcedure_show_all_rooms", mysqlCon);
+                 sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
+                 DataTable dtblData = new DataTable();
+                 sqlDa.Fill(dtblData);
 
-                dataGrid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
+                 Debug.WriteLine(sqlDa);
+                  */
                 mysqlCon.Close();
             }
 
         }
 
         private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

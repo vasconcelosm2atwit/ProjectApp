@@ -9,7 +9,5 @@ namespace CodeCampApp
     // create room class here
     class Room
     {
-        public string Name { get; set; }
-        public int Capacity { get; set; }
     }
 }
