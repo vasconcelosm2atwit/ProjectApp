@@ -8,5 +8,6 @@ namespace CodeCampApp
 {
     class DatabaseManager
     {
+        
     }
 }

@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CodeCampApp
-{
+{   
+    // create room class here
     class Room
     {
     }
