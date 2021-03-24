@@ -57,11 +57,13 @@
     <Compile Include="Controllers\DatabaseManager.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="HomePage.cs">
+    <Compile Include="Ui\HomePage.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="HomePage.Designer.cs">
+    <Compile Include="Ui\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Ui\TimeSlotPage.cs">
       <SubType>Form</SubType>
@@ -119,8 +121,9 @@
     <Compile Include="Entities\TimeSlots.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <EmbeddedResource Include="HomePage.resx">
+    <EmbeddedResource Include="Ui\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\SpeakerPage.resx">
       <DependentUpon>SpeakerPage.cs</DependentUpon>

@@ -39,9 +39,10 @@ namespace CodeCampApp
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 409);
+            this.panel1.Location = new System.Drawing.Point(0, 504);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 188);
+            this.panel1.Size = new System.Drawing.Size(1115, 231);
             this.panel1.TabIndex = 0;
             // 
             // dataGrid
@@ -59,9 +60,11 @@ namespace CodeCampApp
             this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGrid.Location = new System.Drawing.Point(201, 168);
+            this.dataGrid.Location = new System.Drawing.Point(241, 196);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGrid.Name = "dataGrid";
-            this.dataGrid.Size = new System.Drawing.Size(348, 119);
+            this.dataGrid.RowHeadersWidth = 51;
+            this.dataGrid.Size = new System.Drawing.Size(478, 276);
             this.dataGrid.TabIndex = 1;
             this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
             // 
@@ -69,21 +72,23 @@ namespace CodeCampApp
             // 
             this.allRoomsTestLbl.AutoSize = true;
             this.allRoomsTestLbl.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allRoomsTestLbl.Location = new System.Drawing.Point(244, 122);
+            this.allRoomsTestLbl.Location = new System.Drawing.Point(326, 118);
+            this.allRoomsTestLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.allRoomsTestLbl.Name = "allRoomsTestLbl";
             this.allRoomsTestLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.allRoomsTestLbl.Size = new System.Drawing.Size(234, 32);
+            this.allRoomsTestLbl.Size = new System.Drawing.Size(282, 40);
             this.allRoomsTestLbl.TabIndex = 2;
             this.allRoomsTestLbl.Text = "All Rooms (Test)";
             // 
             // HomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 597);
+            this.ClientSize = new System.Drawing.Size(1115, 735);
             this.Controls.Add(this.allRoomsTestLbl);
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HomePage";
             this.Text = "HomePage";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
