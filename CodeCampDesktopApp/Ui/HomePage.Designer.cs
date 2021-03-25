@@ -55,6 +55,7 @@ namespace CodeCampApp
             this.allRoomsTestLbl.Size = new System.Drawing.Size(282, 40);
             this.allRoomsTestLbl.TabIndex = 2;
             this.allRoomsTestLbl.Text = "All Rooms (Test)";
+            this.allRoomsTestLbl.Click += new System.EventHandler(this.allRoomsTestLbl_Click);
             // 
             // dateTimePicker1
             // 

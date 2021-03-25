@@ -51,12 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ClientManager.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Controllers\DatabaseManager.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="Controllers\ClientManager.cs" />
+    <Compile Include="Controllers\DatabaseManager\RoomsDatabaseManager.cs" />
+    <Compile Include="Controllers\DatabaseManager\TimeSlotsDatabaseManager.cs" />
+    <Compile Include="Controllers\DatabaseManager\SpeakerDatabaseManager.cs" />
     <Compile Include="Ui\HomePage.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -121,6 +119,7 @@
     <Compile Include="Entities\TimeSlots.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controllers\DatabaseManager\SessionsDatabaseManager.cs" />
     <EmbeddedResource Include="Ui\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

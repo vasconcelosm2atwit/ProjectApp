@@ -68,7 +68,15 @@ namespace CodeCampApp
             // comboBox.Text = "Sessions";
             //  BottomPanel.Visible = false;
             openChildForm(new HomePage());
+            //TESTING LIST
 
+            DatabaseManager testRoom = new DatabaseManager();
+            List<Room> test = testRoom.RetrieveRooms();
+
+            foreach(Room r in test)
+            {
+                Console.WriteLine("Id: " + r.Id + " Room: " + r.Name + " Capacity: " + r.Capacity );
+            }
         }
 
         private void RoomBtn_Click(object sender, EventArgs e)

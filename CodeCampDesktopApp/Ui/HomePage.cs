@@ -37,7 +37,7 @@ namespace CodeCampApp
                  DataTable dtblData = new DataTable();
                  sqlDa.Fill(dtblData);
 
-                 Debug.WriteLine(sqlDa);
+                 Debug.WriteLine(sqlDa);    
                   */
                 mysqlCon.Close();
             }
@@ -55,6 +55,11 @@ namespace CodeCampApp
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void allRoomsTestLbl_Click(object sender, EventArgs e)
         {
 
         }
