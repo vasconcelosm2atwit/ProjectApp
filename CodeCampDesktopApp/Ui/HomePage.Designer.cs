@@ -39,6 +39,38 @@ namespace CodeCampApp
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 504);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1115, 231);
+            this.panel1.TabIndex = 0;
+            // 
+            // dataGrid
+            // 
+            this.dataGrid.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGrid.Location = new System.Drawing.Point(241, 196);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.RowHeadersWidth = 51;
+            this.dataGrid.Size = new System.Drawing.Size(478, 276);
+            this.dataGrid.TabIndex = 1;
+            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
+            // 
             // allRoomsTestLbl
             // 
             this.allRoomsTestLbl.AutoSize = true;
@@ -50,6 +82,7 @@ namespace CodeCampApp
             this.allRoomsTestLbl.Size = new System.Drawing.Size(234, 32);
             this.allRoomsTestLbl.TabIndex = 2;
             this.allRoomsTestLbl.Text = "All Rooms (Test)";
+            this.allRoomsTestLbl.Click += new System.EventHandler(this.allRoomsTestLbl_Click);
             // 
             // dateTimePicker1
             // 
@@ -95,7 +128,11 @@ namespace CodeCampApp
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.allRoomsTestLbl);
+
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Controls.Add(this.dataGrid);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomePage";
             this.Text = "HomePage";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
