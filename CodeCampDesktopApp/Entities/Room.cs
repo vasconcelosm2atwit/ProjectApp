@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeCampApp
 {   
-    // create room class here
+    // room
     class Room
     {
         private int id;

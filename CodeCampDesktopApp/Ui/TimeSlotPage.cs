@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace CodeCampApp
 {
+    //timeslot page
     public partial class TimeSlotPage : Form
     {
         public TimeSlotPage()
         {
             InitializeComponent();
+        }
+
+        private void TimeSlotPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

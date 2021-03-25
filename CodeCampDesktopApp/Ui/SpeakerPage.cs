@@ -16,5 +16,10 @@ namespace CodeCampApp
         {
             InitializeComponent();
         }
+
+        private void SpeakerPage_Load(object sender, EventArgs e)
+        {
+            //speaker page
+        }
     }
 }

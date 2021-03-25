@@ -72,7 +72,7 @@ namespace CodeCampApp
             // 
             this.allRoomsTestLbl.AutoSize = true;
             this.allRoomsTestLbl.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allRoomsTestLbl.Location = new System.Drawing.Point(326, 118);
+            this.allRoomsTestLbl.Location = new System.Drawing.Point(336, 120);
             this.allRoomsTestLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.allRoomsTestLbl.Name = "allRoomsTestLbl";
             this.allRoomsTestLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;

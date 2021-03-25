@@ -39,6 +39,7 @@ namespace CodeCampApp
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "SpeakerPage";
             this.Text = "SpeakerPage";
+            this.Load += new System.EventHandler(this.SpeakerPage_Load);
             this.ResumeLayout(false);
 
         }

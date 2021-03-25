@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace CodeCampApp
 {
-
+    //MenuPage
     public partial class SideMenu : Form
     {
         private Form activeForm;

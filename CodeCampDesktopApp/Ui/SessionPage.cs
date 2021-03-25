@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace CodeCampApp
 {
+    // session page
     public partial class Session : Form
     {
         public Session()

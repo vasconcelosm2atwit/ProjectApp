@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace CodeCampApp
-{
+{   
+    // roompage
     public partial class RoomPage : Form
     {
         //string connectionString = @"Server=192.168.1.161;Database=projectconference;Uid=root;Pwd=SqlAdmin;";

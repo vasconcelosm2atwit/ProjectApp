@@ -34,6 +34,28 @@ namespace CodeCampApp
 
         }
 
+        public List<Room>retrieveAllRooms()
+        {
+            List<Room> rooms = new List<Room>();
+            return rooms; 
+        }
 
+        public List<Speaker> retrieveAllSpeakers()
+        {
+            List<Speaker> speakers = new List<Speaker>();
+            return speakers;
+        }
+
+        public List<TimeSlots> retrieveAllTimeSlots()
+        {
+            List<TimeSlots> timeSlots = new List<TimeSlots>();
+            return timeSlots;
+        }
+
+        public List<Session> retrieveAllSessions()
+        {
+            List<Session> sessions = new List<Session>();
+            return sessions;
+        }
     }
 }
