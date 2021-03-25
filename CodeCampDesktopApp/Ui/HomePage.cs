@@ -48,5 +48,10 @@ namespace CodeCampApp
         {
 
         }
+
+        private void allRoomsTestLbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

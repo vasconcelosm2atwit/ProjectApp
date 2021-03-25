@@ -69,6 +69,11 @@ namespace CodeCampApp
             //  BottomPanel.Visible = false;
             openChildForm(new HomePage());
 
+           /* DatabaseManager db = new DatabaseManager();
+            db.addRoom(new Room());*/
+           
+            
+
         }
 
         private void RoomBtn_Click(object sender, EventArgs e)
