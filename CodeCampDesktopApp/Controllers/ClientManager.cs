@@ -9,8 +9,5 @@ namespace CodeCampApp
     class ClientManager
     {
         Room newRoom = new Room();
-
-
-        
     }
 }
