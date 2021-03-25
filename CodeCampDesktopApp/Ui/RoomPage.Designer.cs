@@ -62,7 +62,7 @@ namespace CodeCampApp
             // 
             // SubmitBtn
             // 
-            this.SubmitBtn.Location = new System.Drawing.Point(376, 153);
+            this.SubmitBtn.Location = new System.Drawing.Point(376, 149);
             this.SubmitBtn.Name = "SubmitBtn";
             this.SubmitBtn.Size = new System.Drawing.Size(75, 23);
             this.SubmitBtn.TabIndex = 11;
