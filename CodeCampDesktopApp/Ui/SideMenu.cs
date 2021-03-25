@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace CodeCampApp
 {
-    //MenuPage
+
     public partial class SideMenu : Form
     {
         private Form activeForm;
@@ -68,11 +68,6 @@ namespace CodeCampApp
             // comboBox.Text = "Sessions";
             //  BottomPanel.Visible = false;
             openChildForm(new HomePage());
-
-           /* DatabaseManager db = new DatabaseManager();
-            db.addRoom(new Room());*/
-           
-            
 
         }
 

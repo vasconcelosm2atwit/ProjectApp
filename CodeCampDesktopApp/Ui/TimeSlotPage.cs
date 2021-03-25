@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace CodeCampApp
 {
-    //timeslot page
     public partial class TimeSlotPage : Form
     {
         public TimeSlotPage()
@@ -18,7 +17,7 @@ namespace CodeCampApp
             InitializeComponent();
         }
 
-        private void TimeSlotPage_Load(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
