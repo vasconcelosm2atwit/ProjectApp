@@ -1,4 +1,5 @@
-﻿using CodeCampApp.Ui.ChildComponents;
+﻿
+using CodeCampApp.Ui.ChildComponents;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
