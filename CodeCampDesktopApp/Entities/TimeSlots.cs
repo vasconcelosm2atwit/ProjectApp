@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CodeCampApp
-{
+{   //timeslots
     class TimeSlots
     {
         private int id;

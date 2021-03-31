@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DC03FA77-ECA4-4198-BF8C-F4ABB17B518A}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CodeCampApp</RootNamespace>
     <AssemblyName>CodeCampApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -93,11 +96,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ClientManager.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Compile Include="Controllers\ClientManager.cs" />
+    <Compile Include="Controllers\DatabaseManager\RoomsDatabaseManager.cs" />
+    <Compile Include="Controllers\DatabaseManager\TimeSlotsDatabaseManager.cs" />
+    <Compile Include="Controllers\DatabaseManager\SpeakerDatabaseManager.cs" />
+    <Compile Include="Ui\ChildComponents\AddTimeSlotModal.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controllers\DatabaseManager.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Compile Include="Ui\ChildComponents\AddTimeSlotModal.Designer.cs">
+      <DependentUpon>AddTimeSlotModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChildComponents\DeleteModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\ChildComponents\DeleteModal.Designer.cs">
+      <DependentUpon>DeleteModal.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\HomePage.cs">
       <SubType>Form</SubType>
@@ -163,6 +176,13 @@
     <Compile Include="Entities\TimeSlots.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controllers\DatabaseManager\SessionsDatabaseManager.cs" />
+    <EmbeddedResource Include="Ui\ChildComponents\AddTimeSlotModal.resx">
+      <DependentUpon>AddTimeSlotModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChildComponents\DeleteModal.resx">
+      <DependentUpon>DeleteModal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -210,8 +230,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

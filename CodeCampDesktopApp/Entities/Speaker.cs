@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CodeCampApp
-{
+{   //speaker
     class Speaker
     {
         private int id;

@@ -29,56 +29,72 @@ namespace CodeCampApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.createNewSession = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 91);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1202, 512);
+            this.dataGridView1.Size = new System.Drawing.Size(1243, 689);
             this.dataGridView1.TabIndex = 0;
             // 
             // createNewSession
             // 
+            this.createNewSession.BackColor = System.Drawing.Color.White;
             this.createNewSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createNewSession.Location = new System.Drawing.Point(1220, 69);
+            this.createNewSession.Location = new System.Drawing.Point(949, 55);
+            this.createNewSession.Margin = new System.Windows.Forms.Padding(2);
             this.createNewSession.Name = "createNewSession";
-            this.createNewSession.Size = new System.Drawing.Size(262, 103);
+            this.createNewSession.Size = new System.Drawing.Size(225, 34);
             this.createNewSession.TabIndex = 1;
-            this.createNewSession.Text = "Create New Session";
-            this.createNewSession.UseVisualStyleBackColor = true;
+            this.createNewSession.Text = "Add New Session";
+            this.createNewSession.UseVisualStyleBackColor = false;
             this.createNewSession.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(655, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(99, 31);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Sessions";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(508, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 46);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Sessions";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Session
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1494, 593);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1358, 791);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.createNewSession);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Session";
             this.Text = "Session";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -90,6 +106,6 @@ namespace CodeCampApp
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button createNewSession;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
