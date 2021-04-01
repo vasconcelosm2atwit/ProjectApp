@@ -107,16 +107,16 @@
     <Compile Include="Controllers\SessionsDatabaseManager.cs" />
     <Compile Include="Controllers\SpeakerDatabaseManager.cs" />
     <Compile Include="Controllers\TimeSlotsDatabaseManager.cs" />
-    <Compile Include="Ui\AddTimeSlotModal.cs">
+    <Compile Include="Ui\ChildComponents\AddTimeSlotModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ui\AddTimeSlotModal.Designer.cs">
+    <Compile Include="Ui\ChildComponents\AddTimeSlotModal.Designer.cs">
       <DependentUpon>AddTimeSlotModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ui\DeleteModal.cs">
+    <Compile Include="Ui\ChildComponents\DeleteModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ui\DeleteModal.Designer.cs">
+    <Compile Include="Ui\ChildComponents\DeleteModal.Designer.cs">
       <DependentUpon>DeleteModal.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\HomePage.cs">
@@ -183,10 +183,10 @@
     <Compile Include="Entities\TimeSlots.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <EmbeddedResource Include="Ui\AddTimeSlotModal.resx">
+    <EmbeddedResource Include="Ui\ChildComponents\AddTimeSlotModal.resx">
       <DependentUpon>AddTimeSlotModal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ui\DeleteModal.resx">
+    <EmbeddedResource Include="Ui\ChildComponents\DeleteModal.resx">
       <DependentUpon>DeleteModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\HomePage.resx">

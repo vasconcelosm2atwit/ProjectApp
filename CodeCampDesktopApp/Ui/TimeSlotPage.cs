@@ -108,10 +108,6 @@ namespace CodeCampApp
             }
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("Hello");
-        }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             handleButtonClick(sender, e, "edit");
@@ -138,7 +134,7 @@ namespace CodeCampApp
                 }
                 if (buttonName == "delete")
                 {
-                    DeleteModal popup = new DeleteModal(this.dataGridView1, e);
+                    DeleteModal popup = new DeleteModal(this.dataGridView1, e, "time_slots", "time_slots_id");
                     popup.ShowDialog(this);
                 }
                 if (buttonName == "save")
