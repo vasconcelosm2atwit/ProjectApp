@@ -71,6 +71,12 @@
       <DependentUpon>DeleteModal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Ui\ChildComponents\AddSpeakerModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\ChildComponents\AddSpeakerModal.Designer.cs">
+      <DependentUpon>AddSpeakerModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\HomePage.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -136,6 +142,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Controllers\DatabaseManager\SessionsDatabaseManager.cs" />
+    <EmbeddedResource Include="Ui\ChildComponents\AddSpeakerModal.resx">
+      <DependentUpon>AddSpeakerModal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\ChildComponents\AddTimeSlotModal.resx">
       <DependentUpon>AddTimeSlotModal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

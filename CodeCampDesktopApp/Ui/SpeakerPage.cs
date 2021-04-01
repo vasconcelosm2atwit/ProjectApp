@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using CodeCampApp.Ui.ChildComponents;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -145,7 +146,8 @@ namespace CodeCampApp
 
                 if (buttonName == "delete")
                 {
-                    Console.WriteLine("delete");
+                    DeleteModal popup = new DeleteModal(this.dataGridView1, e);
+                    popup.ShowDialog(this);
                 }
 
                 if (buttonName == "save")
@@ -193,6 +195,12 @@ namespace CodeCampApp
                      dataGridView1.Columns["cancel"].Visible = false;
                 }
             }
+        }
+        private void addNewSpeaker_Click(object sender, EventArgs e)
+        {
+            AddSpeakerModal add = new AddSpeakerModal(this.dataGridView1, _dt);
+            add.ShowDialog(this);
+            this.Refresh();
         }
 
         private void label2_Click(object sender, EventArgs e)
