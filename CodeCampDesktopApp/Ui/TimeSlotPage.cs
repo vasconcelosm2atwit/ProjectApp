@@ -13,7 +13,12 @@ namespace CodeCampApp
         public TimeSlotPage()
         {
             InitializeComponent();
-
+            updateData();
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+        }
+        public void updateData()
+        {
+            dataGridView1.Rows.Clear();
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
@@ -105,7 +110,6 @@ namespace CodeCampApp
 
                 mysqlCon.Close();
             }
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

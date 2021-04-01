@@ -56,28 +56,10 @@ namespace CodeCampApp.Ui.ChildComponents
                 cmd.Parameters.AddWithValue("start_time", _startTime);
                 cmd.Parameters.AddWithValue("end_time", _endTime);
                 cmd.ExecuteNonQuery();
-                /*var id = "select time_slots_id from time_slots";
-                var idcmd = new MySqlCommand(id, mysqlCon);
-                var reader = idcmd.ExecuteReader();
-                var newID = 0;
-                while (reader.Read())
-                {
-                    newID = reader.GetInt32(0);
-                }
-                newID = newID + 1;
-                DataRow row = _dt.NewRow();
-                row["id"] = newID;
-                row["start_time"] = _startTime;
-                    row["end_time"] = _endTime;
-                    row["edit"] = "1";
-                    row["delete"] = "1";
-                    row["save"] = "1";
-                    row["cancel"] = "1";
-                    _dt.Rows.Add(row);
-                */
+                TimeSlotPage parent = (TimeSlotPage)Application.OpenForms["TimeSlotPage"];
+                parent.updateData();
                 mysqlCon.Close();
             }
-           // _datagrid.Rows.Add();
             this.Dispose();
         }
     }
