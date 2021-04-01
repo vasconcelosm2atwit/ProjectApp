@@ -15,12 +15,16 @@ namespace CodeCampApp.Ui.ChildComponents
     {
         private DataGridView _datagrid;
         private DataGridViewCellEventArgs _e;
-        public DeleteModal(DataGridView datagrid, DataGridViewCellEventArgs e)
+        private string _tablename;
+        private string _idname;
+        public DeleteModal(DataGridView datagrid, DataGridViewCellEventArgs e, string table_name, string id_name)
         {
             _datagrid = datagrid;
             _e = e;
             InitializeComponent();
-           
+            _tablename = table_name;
+            _idname = id_name;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,9 +38,9 @@ namespace CodeCampApp.Ui.ChildComponents
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
-                var stm = "delete from time_slots where time_slots_id = @timeslotid";
+                var stm = string.Format("delete from {0} where {1} = @{2}", _tablename, _idname, _idname);
                 var cmd = new MySqlCommand(stm, mysqlCon);
-                cmd.Parameters.AddWithValue("timeslotid", Int32.Parse(_datagrid[0, _e.RowIndex].Value.ToString()));
+                cmd.Parameters.AddWithValue(_idname, Int32.Parse(_datagrid[0, _e.RowIndex].Value.ToString()));
                 cmd.ExecuteNonQuery();
                 mysqlCon.Close();
             }
