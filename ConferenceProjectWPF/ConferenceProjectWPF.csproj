@@ -90,20 +90,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controllers\DatabaseManager\RoomsDatabaseManager.cs" />
-    <Compile Include="Controllers\DatabaseManager\SessionsDatabaseManager.cs" />
-    <Compile Include="Controllers\DatabaseManager\SpeakerDatabaseManager.cs" />
-    <Compile Include="Controllers\DatabaseManager\TimeSlotsDatabaseManager.cs" />
-    <Compile Include="Entities\ClientManager\BaseViewModel.cs" />
-    <Compile Include="Entities\ClientManager\Model.cs" />
-    <Compile Include="Entities\ClientManager\RelayCommand.cs" />
-    <Compile Include="Entities\Room.cs" />
-    <Compile Include="Entities\Session.cs" />
-    <Compile Include="Entities\Speaker.cs" />
-    <Compile Include="Entities\TimeSlot.cs" />
-    <Compile Include="Entities\ClientManager\TimeslotViewModel.cs" />
-    <Compile Include="UI\ChildComponents\ConfirmModal.xaml.cs">
-      <DependentUpon>ConfirmModal.xaml</DependentUpon>
+    <Compile Include="Controllers\DatabaseManager\RoomsDatabaseManager.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Controllers\DatabaseManager\SessionsDatabaseManager.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Controllers\DatabaseManager\SpeakerDatabaseManager.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Controllers\DatabaseManager\TimeSlotsDatabaseManager.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\ClientManager\Model.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\ClientManager\RelayCommand.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\ClientManager\RoomViewModel.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\ClientManager\SessionViewModel.cs" />
+    <Compile Include="Entities\ClientManager\SpeakerViewModel.cs" />
+    <Compile Include="Entities\Room.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\Session.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\Speaker.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\TimeSlot.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\ClientManager\TimeslotViewModel.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="UI\RoomPage.xaml.cs">
       <DependentUpon>RoomPage.xaml</DependentUpon>
@@ -113,22 +136,14 @@
       <DependentUpon>SessionPage.xaml</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="UI\SpeakerPage.xaml.cs">
-      <DependentUpon>SpeakerPage.xaml</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="UI\TimeSlotPage.xaml.cs">
       <DependentUpon>TimeSlotPage.xaml</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="ViewModel.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="UI\SpeakerPage.xaml.cs">
+      <DependentUpon>SpeakerPage.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Page Include="UI\ChildComponents\ConfirmModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UI\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +152,7 @@
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -149,6 +165,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Page Include="UI\RoomPage.xaml">
       <SubType>Designer</SubType>
@@ -160,19 +177,15 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
-    <Page Include="UI\SpeakerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Page>
     <Page Include="UI\TimeSlotPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
-    <Page Include="Window1.xaml">
+    <Page Include="UI\SpeakerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
   <ItemGroup>

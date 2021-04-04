@@ -1,5 +1,4 @@
-﻿using ConferenceProjectWPF.Controllers;
-using ConferenceProjectWPF.Entities;
+﻿using ConferenceProjectWPF;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,17 +22,13 @@ namespace ConferenceProjectWPF
     /// </summary>
     public partial class HomePage : Page
     {
-        private readonly ViewModel viewModel;
+        //private readonly ViewModel viewModel;
         public HomePage()
         {
             InitializeComponent();
             RoomsDatabaseManager db = new RoomsDatabaseManager();
-            this.viewModel = new ViewModel
-            {
-                allRooms = new List<Room>(db.RetrieveRooms())
-            };
-
-            this.DataContext = this.viewModel;
+            //this.viewModel = new ViewModel
+            
 
 
 

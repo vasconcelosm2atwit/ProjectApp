@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\App.xaml
-8-1007589361
+6782628298
 
-2678905754
+25-1218610493
 129-1236922536
-UI\ChildComponents\ConfirmModal.xaml;UI\HomePage.xaml;MainWindow.xaml;UI\RoomPage.xaml;UI\SessionPage.xaml;UI\SpeakerPage.xaml;UI\TimeSlotPage.xaml;Window1.xaml;
+UI\HomePage.xaml;MainWindow.xaml;UI\RoomPage.xaml;UI\SessionPage.xaml;UI\TimeSlotPage.xaml;UI\SpeakerPage.xaml;
 
-False
+True
 
