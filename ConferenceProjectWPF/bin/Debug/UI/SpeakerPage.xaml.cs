@@ -72,7 +72,7 @@ namespace ConferenceProjectWPF.UI
 
                 if (PhoneTextBox.Text.Length != 0 && !speakerViewModel.ValidatePhoneNumber(PhoneTextBox.Text, false))
                 {
-                    PhoneTextBox.Text = "";
+                    
                     MessageBox.Show("Phone Number Invalid");
                     return;
 

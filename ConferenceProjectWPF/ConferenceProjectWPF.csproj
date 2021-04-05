@@ -121,6 +121,7 @@
     <Compile Include="Entities\ClientManager\RoomViewModel.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Entities\ClientManager\SessionTestData.cs" />
     <Compile Include="Entities\ClientManager\SessionViewModel.cs" />
     <Compile Include="Entities\ClientManager\SpeakerViewModel.cs" />
     <Compile Include="Entities\Room.cs">

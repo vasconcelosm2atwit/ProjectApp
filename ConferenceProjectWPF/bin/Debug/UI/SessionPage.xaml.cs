@@ -20,9 +20,75 @@ namespace ConferenceProjectWPF.UI
     /// </summary>
     public partial class SessionPage : Page
     {
+        string holdStart_time;
+        string holdEnd_time;
+        SessionViewModel sessionViewModel = new SessionViewModel();
+     
         public SessionPage()
         {
             InitializeComponent();
+
+            this.DataContext = sessionViewModel;
+        }
+
+
+        private void Button_open_edit(object sender, RoutedEventArgs e)
+        {
+            
+
+            MyDialogHost.IsOpen = true;
+        }
+
+        private void Button_confirm_edit(object sender, RoutedEventArgs e)
+        {
+
+           
+
+           MyDialogHost.IsOpen = false;
+            
+        }
+
+        private void Button_cancel_edit(object sender, RoutedEventArgs e)
+        {
+            
+            MyDialogHost.IsOpen = false;
+        }
+
+        private void Button_open_delete(object sender, RoutedEventArgs e)
+        {
+
+            deletePopUp.IsOpen = true;
+        }
+
+        private void Button_confirm_delete(object sender, RoutedEventArgs e)
+        {
+
+           
+                deletePopUp.IsOpen = false;
+            
+
+        }
+
+        private void Button_cancel_delete(object sender, RoutedEventArgs e)
+        {
+            deletePopUp.IsOpen = false;
+        }
+
+        private void Button_open_createTimeSlot(object sender, RoutedEventArgs e)
+        {
+            createDialogHost.IsOpen = true;
+
+        }
+
+        private void Button_confirm_creation(object sender, RoutedEventArgs e)
+        {
+
+            createDialogHost.IsOpen = false;
+        }
+
+        private void Button_cancel_creation(object sender, RoutedEventArgs e)
+        {
+            createDialogHost.IsOpen = false;
         }
     }
 }

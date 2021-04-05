@@ -34,6 +34,7 @@
                     Background="#FF14234F"
                    
                        >
+                    
                     <RadioButton
                         HorizontalAlignment="Left"
                       Style="{StaticResource MaterialDesignTabRadioButton}"
@@ -168,12 +169,13 @@
 
 
 
-
         </StackPanel>
         <StackPanel DockPanel.Dock="Top" Background="yellow">
 
         </StackPanel>
 
+        
+        
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Background="#FFF7F4F4"/>
 
 

@@ -50,5 +50,9 @@ namespace ConferenceProjectWPF
             Main.Content = new UI.TimeSlotPage();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new UI.SpeakerPage();
+        }
     }
 }

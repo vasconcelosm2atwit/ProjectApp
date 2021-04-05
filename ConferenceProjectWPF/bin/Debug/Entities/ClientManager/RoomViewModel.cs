@@ -62,7 +62,7 @@ namespace ConferenceProjectWPF
 
         public bool DeleteItem()
         {
-            Rooms.Remove(this.SelectedItem);
+
             bool isError = false;
             try
             {
@@ -74,6 +74,7 @@ namespace ConferenceProjectWPF
                 Console.WriteLine(ex);
                 Console.WriteLine("Failed to update the Database ---  check error ABOVE");
             }
+            Rooms.Remove(this.SelectedItem);
             return isError;
 
         }
@@ -124,7 +125,7 @@ namespace ConferenceProjectWPF
             List<Room> copy = new List<Room>(Rooms);
             List<Room> newList = copy.ConvertAll(room => new Room(room.Name));
             List<string> allUppers = new List<string>();
-            foreach(Room a in newList)
+            foreach (Room a in newList)
             {
                 allUppers.Add(a.Name.ToUpper());
             }
@@ -132,7 +133,7 @@ namespace ConferenceProjectWPF
 
             var dups = allUppers.GroupBy(i => new { i }).Select(g => new
             {
-                
+
                 Label = g.Key,
                 Count = g.Count()
             }).Where(g => g.Count > 1);
@@ -141,6 +142,6 @@ namespace ConferenceProjectWPF
             return dups.Any();
         }
 
-     
+
     }
 }

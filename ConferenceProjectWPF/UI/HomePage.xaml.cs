@@ -22,15 +22,16 @@ namespace ConferenceProjectWPF
     /// </summary>
     public partial class HomePage : Page
     {
-        //private readonly ViewModel viewModel;
+        SessionViewModel sessionViewModel;
         public HomePage()
         {
             InitializeComponent();
-            RoomsDatabaseManager db = new RoomsDatabaseManager();
-            //this.viewModel = new ViewModel
-            
+            sessionViewModel = new SessionViewModel();
+            this.DataContext = sessionViewModel;
 
-
+            Card1.ItemsSource = sessionViewModel.Sessions;
+            Card2.ItemsSource = sessionViewModel.Sessions;
+            Card3.ItemsSource = sessionViewModel.Sessions;
 
         }
         
