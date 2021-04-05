@@ -15,6 +15,15 @@ namespace ConferenceProjectWPF
         public string Name { get { return name; } set { name = value; } }
         public int Capacity { get { return capacity; } set { capacity = value; } }
 
+        public Room()
+        {
+
+        }
+        public Room(string name)
+        {
+            this.Name = name;
+        }
+       
         
 
        

@@ -83,6 +83,8 @@ namespace ConferenceProjectWPF
         //############################################### DELETE ###############################################
         public void deleteTimeSlot(TimeSlot timeSlotToDelete)
         {
+
+            if (timeSlotToDelete == null) return;
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();

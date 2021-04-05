@@ -63,3 +63,8 @@ C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\bin
 C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\obj\Debug\UI\SpeakerPage.g.cs
 C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\obj\Debug\UI\SpeakerPage.baml
 C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\obj\Debug\ConferenceProjectWPF.csprojAssemblyReference.cache
+C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\bin\Debug\PhoneNumbers.dll
+C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\bin\Debug\System.Collections.Immutable.dll
+C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\bin\Debug\PhoneNumbers.xml
+C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\bin\Debug\System.Collections.Immutable.xml
+C:\Users\vasconcelosm2\source\repos\ConferenceProjectUI\ConferenceProjectWPF\bin\Debug\System.ComponentModel.Annotations.dll

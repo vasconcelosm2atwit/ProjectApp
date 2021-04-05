@@ -21,16 +21,56 @@ namespace ConferenceProjectWPF
             this.TimeSlots = new ObservableCollection<TimeSlot>(db.retrieveTimeSlots());
         }
 
-        public void DeleteItem()
+        public bool UpdateItem(TimeSlot timeslot)
         {
-            db.deleteTimeSlot(this.SelectedTimeslot);
+            bool isError = false;
+            try
+            {
+                db.updateTimeSlot(timeslot);
+            }
+            catch (Exception ex)
+            {
+                isError = true;
+                Console.WriteLine(ex);
+                Console.WriteLine("Failed to update the Database ---  check error ABOVE");
+            }
+            return isError;
+        }
+        public bool DeleteItem()
+        {
+            
+            bool isError = false;
+            try
+            {
+                db.deleteTimeSlot(this.SelectedTimeslot);
+            }
+            catch (Exception ex)
+            {
+                isError = true;
+                Console.WriteLine(ex);
+                Console.WriteLine("Failed to update the Database ---  check error ABOVE");
+            }
             TimeSlots.Remove(this.SelectedTimeslot);
+            return isError;
         }
 
-        public void CreateTimeSlot(TimeSlot timeSlot)
+        public bool CreateTimeSlot(TimeSlot timeSlot)
         {
+            
+            bool isError = false;
+
+            try
+            {
+                db.addTimeSlot(timeSlot);
+            }
+            catch (Exception ex)
+            {
+                isError = true;
+                Console.WriteLine(ex);
+                Console.WriteLine("Failed to update the Database ---  check error ABOVE");
+            }
             TimeSlots.Add(timeSlot);
-            db.addTimeSlot(timeSlot);
+            return isError;
 
         }
 

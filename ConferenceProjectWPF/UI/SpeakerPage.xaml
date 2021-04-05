@@ -33,15 +33,36 @@
         <Grid>
             <StackPanel Margin="0">
                 <Grid Width="800" Margin="0 0 0 0">
-                    <Button 
-                        Content="Create New Time Slot" 
-                        Width="200" 
-                        HorizontalAlignment="Right"
-                        Click="Button_open_createTimeSlot"
-                        
-                        />
-                </Grid>
+                    <StackPanel Orientation="Horizontal"
+                                Width="800">
 
+                        <materialDesign:PackIcon
+                            Width="30"
+                            Height="30"
+                            Kind="Search"
+                            Foreground="Purple"/>
+                        <TextBox
+                          
+                          Text="{Binding SpeakerFilter, UpdateSourceTrigger=PropertyChanged}"
+                          VerticalAlignment="Center"
+                          Width="200"
+                          materialDesign:TextFieldAssist.HasClearButton="True"
+                          materialDesign:HintAssist.Hint="Search"
+                          FontSize="14"
+                          Margin=" 0 0 0 5"
+                            />
+                        <Button 
+                            Content="Create New Time Slot" 
+                            Width="200" 
+                            HorizontalAlignment="Right"
+                            Click="Button_open_createTimeSlot"
+                            Margin="366 0 0 0"
+                        
+                            />
+                        
+                    </StackPanel>
+                </Grid>
+                    
 
                 <DataGrid x:Name="speakerGrid"
                   Height="600" Width="800" Margin="0,0,0,0" 
@@ -54,7 +75,7 @@
                   BorderThickness="1"
                   SelectionMode="Extended"
                   CanUserAddRows="False"
-                  ItemsSource="{Binding Speakers}"
+                  ItemsSource="{Binding SpeakersCollection}"
                   SelectedItem="{Binding SelectedItem}" Background="White">
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -167,6 +188,7 @@
             </StackPanel>
             <materialDesign:DialogHost
                 x:Name="MyDialogHost"
+             
                 VerticalAlignment="Center"
                 IsOpen="False"
                 CloseOnClickAway="True"
@@ -217,7 +239,9 @@
                                     materialDesign:TextFieldAssist.HasFilledTextField="True"
                                     materialDesign:HintAssist.HelperText="Please Enter a Phone Number"
                                     materialDesign:HintAssist.Hint="Phone Number"
-                                    MaxLength="12"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                    CommandManager.PreviewCanExecute="HandleCanExecute"
+                                    MaxLength="20"
                                     FontSize="18"
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                     materialDesign:TransitionAssist.DisableTransitions="True"
@@ -364,7 +388,9 @@
                                     materialDesign:TextFieldAssist.HasFilledTextField="True"
                                     materialDesign:HintAssist.HelperText="Please Enter a Phone Number"
                                     materialDesign:HintAssist.Hint="Phone Number"
-                                    MaxLength="12"
+                                    PreviewTextInput="NumberValidationTextBox"
+                                    CommandManager.PreviewCanExecute="HandleCanExecute"
+                                    MaxLength="25"
                                     FontSize="18"
                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                     materialDesign:TransitionAssist.DisableTransitions="True"
