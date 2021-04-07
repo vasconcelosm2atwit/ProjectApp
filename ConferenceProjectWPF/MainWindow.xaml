@@ -15,7 +15,7 @@
         <StackPanel DockPanel.Dock="Bottom" Background="red">
 
         </StackPanel>
-        <StackPanel DockPanel.Dock="Left" Background="#FF14234F" Margin="0,0,0,0.4" Width="200"
+        <StackPanel DockPanel.Dock="Left" Background="#FF14234F" Margin="0,0,0,0.4" Width="216"
                     
                     >
 
@@ -30,11 +30,11 @@
                 <StackPanel
                        
                     Orientation="Vertical"
-                    Margin="0"
-                    Background="#FF14234F"
+                    Margin="0,0,0.2,0"
+                    Background="#FF14234F" Height="668"
                    
                        >
-                    
+
                     <RadioButton
                         HorizontalAlignment="Left"
                       Style="{StaticResource MaterialDesignTabRadioButton}"
@@ -42,9 +42,9 @@
                       Margin="4,4,0,4"
                       IsChecked="True"
                         
-                        Height="100"
-                        Click="Btn_homeClick" Width="187"
-                      >
+                        Height="90"
+                        Width="187" 
+                        Click="Btn_homeClick" >
                         <StackPanel Orientation="Horizontal">
                             <!-- BUTTON ICON-->
                             <materialDesign:PackIcon
@@ -59,20 +59,65 @@
                             VerticalAlignment="Bottom"
                             FontSize="20" Height="32"/>
                             <!-- BUTTON TEXT-->
-
                         </StackPanel>
-
-
+                    </RadioButton>
+                    <RadioButton
+                      Style="{StaticResource MaterialDesignTabRadioButton}"
+                      Margin="4,4,0,4"
+                      IsChecked="False"
+                      Click="btn_sessions"
+                        HorizontalAlignment="Left"
+                        Height="90" 
+                        Width="187">
+                        <StackPanel 
+                        Orientation="Horizontal" Width="121" >
+                            <!-- BUTTON ICON -->
+                            <materialDesign:PackIcon
+                            HorizontalAlignment="Left"
+                            Kind="Timetable"  
+                            Height="40" 
+                            Width="36" />
+                            <!--BUTTON TEXT-->
+                            <TextBlock 
+                            Margin="5,0,0,0"
+                            Text="Sessions" 
+                            VerticalAlignment="Bottom"
+                            FontSize="20" Height="35"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton
+                      Style="{StaticResource MaterialDesignTabRadioButton}"
+                      Margin="10,4,0,4"
+                      HorizontalAlignment="Left"
+                      IsChecked="False"
+                      Click="btn_timeSlots"
+                      Height="90" 
+                        Width="191">
+                        <StackPanel 
+                        Orientation="Horizontal" Width="187" >
+                            <!-- BUTTON ICON -->
+                            <materialDesign:PackIcon
+                            HorizontalAlignment="Left"
+                            Kind="Counter"  
+                            Height="40"
+                            Margin="10,0,0,0"
+                            Width="40" />
+                            <!--BUTTON TEXT-->
+                            <TextBlock 
+                            Margin="5,0,0,0"
+                            Text="Attendance" 
+                            VerticalAlignment="Bottom"
+                            FontSize="20" Height="35" Width="112"/>
+                        </StackPanel>
                     </RadioButton>
                     <RadioButton
                         HorizontalAlignment="Left"
                       Style="{StaticResource MaterialDesignTabRadioButton}"
                       Margin="4,4,0,4"
                       IsChecked="False"
-                        Height="100"
-                        Click="Btn_rooms" Width="187"
-                        >
-
+                        Height="90"
+                        Width="187"
+                        Click="Btn_rooms">
                         <StackPanel 
                         Orientation="Horizontal" >
                             <!-- BUTTON ICON -->
@@ -91,37 +136,15 @@
                             FontSize="20" Height="35"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton
-                      Style="{StaticResource MaterialDesignTabRadioButton}"
-                      Margin="4,4,0,4"
-                      IsChecked="False"
-                      Click="btn_sessions"
-                        HorizontalAlignment="Left"
-                     Height="100" Width="187">
-                        <StackPanel 
-                        Orientation="Horizontal" Width="121" >
-                            <!-- BUTTON ICON -->
-                            <materialDesign:PackIcon
-                            HorizontalAlignment="Left"
-                            Kind="Timetable"  
-                            Height="40" 
-                            Width="36" />
-                            <!--BUTTON TEXT-->
-                            <TextBlock 
-                            Margin="5,0,0,0"
-                            Text="Sessions" 
-                            VerticalAlignment="Bottom"
-                            FontSize="20" Height="35"/>
-                        </StackPanel>
 
-                    </RadioButton>
                     <RadioButton
                       Style="{StaticResource MaterialDesignTabRadioButton}"
                       Margin="4,4,0,4"
                       IsChecked="False"
                       Click="btn_speakers"
-                      Height="100"
-                        HorizontalAlignment="Left" Width="187">
+                      Height="90"
+                      Width="187"
+                        HorizontalAlignment="Left" >
                         <StackPanel 
                         Orientation="Horizontal" Width="121" >
                             <!-- BUTTON ICON -->
@@ -145,7 +168,8 @@
                       HorizontalAlignment="Left"
                       IsChecked="False"
                       Click="btn_timeSlots"
-                      Height="100" Width="187">
+                      Height="90" 
+                        Width="187">
                         <StackPanel 
                         Orientation="Horizontal" Width="150" >
                             <!-- BUTTON ICON -->
@@ -162,8 +186,35 @@
                             VerticalAlignment="Bottom"
                             FontSize="20" Height="35" Width="106"/>
                         </StackPanel>
-
                     </RadioButton>
+
+                    <RadioButton
+                      Style="{StaticResource MaterialDesignTabRadioButton}"
+                      Margin="130,10,0,4"
+                      HorizontalAlignment="Left"
+                      IsChecked="False"
+                      Click="btn_timeSlots"
+                      Height="56" 
+                        Width="56">
+                        <StackPanel 
+                        Orientation="Horizontal" Width="150" >
+                            <!-- BUTTON ICON -->
+                            <materialDesign:PackIcon
+                            HorizontalAlignment="Left"
+                            Kind="DatabaseCog"  
+                            Height="40"
+                            Margin="1,0,0,0"
+                            Width="40" />
+                            <!--BUTTON TEXT-->
+                            <TextBlock 
+                            Margin="5,0,0,0"
+                            Text="" 
+                            VerticalAlignment="Bottom"
+                            FontSize="20" Height="35" Width="106"/>
+                        </StackPanel>
+                    </RadioButton>
+
+
                 </StackPanel>
             </materialDesign:ColorZone>
 
@@ -174,9 +225,9 @@
 
         </StackPanel>
 
-        
-        
-        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Background="#FFF7F4F4"/>
+
+
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Background="#FFF7F4F4" Margin="0,0,0,0.4" Width="927"/>
 
 
 

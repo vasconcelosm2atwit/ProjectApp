@@ -77,6 +77,7 @@ namespace ConferenceProjectWPF
                 mySqlCmdNewRooom.Parameters.AddWithValue("_speaker_name", speakerToUpdate.Name);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_email", speakerToUpdate.Email);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_phone_number", speakerToUpdate.PhoneNumber);
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id", speakerToUpdate.Id);
 
                 mySqlCmdNewRooom.ExecuteNonQuery();
                 mysqlCon.Close();
@@ -91,18 +92,15 @@ namespace ConferenceProjectWPF
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
-                //IF NOT THEN USE
-                /*MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_speaker", mysqlCon);
-                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
-                 mySqlCmdNewRooom.Parameters.AddWithValue("_speaker_name", speakerToDelete.Name);
-                mySqlCmdNewRooom.Parameters.AddWithValue("_email", speakerToDelete.Email);
-                mySqlCmdNewRooom.Parameters.AddWithValue("_phone_number", speakerToDelete.PhoneNumber);
-                */
 
-                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_speakerTEST", mysqlCon);
+                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_speaker", mysqlCon);
                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
                 mySqlCmdNewRooom.Parameters.AddWithValue("_speaker_name", speakerToDelete.Name);
-                
+                mySqlCmdNewRooom.Parameters.AddWithValue("_email", speakerToDelete.Email);
+                mySqlCmdNewRooom.Parameters.AddWithValue("_phone_number", speakerToDelete.PhoneNumber);
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id", speakerToDelete.Id);
+
+
                 mySqlCmdNewRooom.ExecuteNonQuery();
                 mysqlCon.Close();
 

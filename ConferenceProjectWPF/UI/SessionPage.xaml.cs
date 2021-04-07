@@ -23,7 +23,7 @@ namespace ConferenceProjectWPF.UI
         string holdStart_time;
         string holdEnd_time;
         SessionViewModel sessionViewModel = new SessionViewModel();
-     
+
         public SessionPage()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace ConferenceProjectWPF.UI
 
         private void Button_open_edit(object sender, RoutedEventArgs e)
         {
-            
+
 
             MyDialogHost.IsOpen = true;
         }
@@ -42,15 +42,15 @@ namespace ConferenceProjectWPF.UI
         private void Button_confirm_edit(object sender, RoutedEventArgs e)
         {
 
-           
 
-           MyDialogHost.IsOpen = false;
-            
+
+            MyDialogHost.IsOpen = false;
+
         }
 
         private void Button_cancel_edit(object sender, RoutedEventArgs e)
         {
-            
+
             MyDialogHost.IsOpen = false;
         }
 
@@ -63,9 +63,9 @@ namespace ConferenceProjectWPF.UI
         private void Button_confirm_delete(object sender, RoutedEventArgs e)
         {
 
-           
-                deletePopUp.IsOpen = false;
-            
+
+            deletePopUp.IsOpen = false;
+
 
         }
 
@@ -90,5 +90,6 @@ namespace ConferenceProjectWPF.UI
         {
             createDialogHost.IsOpen = false;
         }
+
     }
 }

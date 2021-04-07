@@ -69,8 +69,9 @@ namespace ConferenceProjectWPF
                 /* MySqlCommand mySqlCmdNewRooom = new MySqlCommand("update_roomTEST", mysqlCon);
                 */
 
-                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("update_room", mysqlCon);
+                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("update_timeSlot", mysqlCon);
                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id", timeSlotsToUpdate.Id);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_start_time", timeSlotsToUpdate.Start_time);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_end_time", timeSlotsToUpdate.End_time);
 
@@ -88,16 +89,14 @@ namespace ConferenceProjectWPF
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
-                //IF NOT THEN USE
-                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_timeSlot", mysqlCon);
-                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
-                 mySqlCmdNewRooom.Parameters.AddWithValue("_start_time", timeSlotToDelete.Start_time);
-                mySqlCmdNewRooom.Parameters.AddWithValue("_end_time", timeSlotToDelete.End_time);
-                
-                /*
+              
                 MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_timeSlot", mysqlCon);
                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
-                mySqlCmdNewRooom.Parameters.AddWithValue("_start_time", timeSlotToDelete.Start_time); */
+                mySqlCmdNewRooom.Parameters.AddWithValue("_start_time", timeSlotToDelete.Start_time);
+                mySqlCmdNewRooom.Parameters.AddWithValue("_end_time", timeSlotToDelete.End_time);
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id", timeSlotToDelete.Id);
+
+              
 
                 mySqlCmdNewRooom.ExecuteNonQuery();
                 mysqlCon.Close();

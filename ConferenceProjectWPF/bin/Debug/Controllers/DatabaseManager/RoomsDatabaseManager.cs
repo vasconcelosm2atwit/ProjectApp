@@ -73,6 +73,7 @@ namespace ConferenceProjectWPF
 
                 MySqlCommand mySqlCmdNewRooom = new MySqlCommand("update_room", mysqlCon);
                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id", roomToUpdate.Id);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_room", roomToUpdate.Name);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_capacity", roomToUpdate.Capacity);
 
@@ -88,17 +89,12 @@ namespace ConferenceProjectWPF
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
-                //IF NOT THEN USE
-                /*MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_roomTEST", mysqlCon);
-                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
-                mySqlCmdNewRooom.Parameters.AddWithValue("_room", roomToDelete.Name);
-                mySqlCmdNewRooom.Parameters.AddWithValue("_capacity", roomToDelete.Capacity);
-                */
-
-                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_roomTEST", mysqlCon);
+            
+                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_room", mysqlCon);
                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
                 mySqlCmdNewRooom.Parameters.AddWithValue("_room", roomToDelete.Name);
-
+                mySqlCmdNewRooom.Parameters.AddWithValue("_capacity", roomToDelete.Capacity);
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id", roomToDelete.Id);
                 mySqlCmdNewRooom.ExecuteNonQuery();
                 mysqlCon.Close();
 

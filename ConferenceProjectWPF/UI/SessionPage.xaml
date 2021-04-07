@@ -333,10 +333,11 @@
                 IsOpen="False"
                 OverlayBackground="#FF14234F"
                 RenderTransformOrigin="0.496,0.255">
-                <materialDesign:DialogHost.DialogContent>
+                <materialDesign:DialogHost.DialogContent
+                    >
                     <Grid
                         Width="350"
-                        Height="405"
+                        Height="500"
                         Margin="10">
                         <StackPanel Margin="20,20,20,0">
 
@@ -352,52 +353,76 @@
                                             HorizontalAlignment="center"
                                             FontSize="15"
                                             FontWeight="Bold"
-                                            Text="Create a New Speaker" />
+                                            Text="Create New Session" />
 
 
-                                        <TextBox
-                                            x:Name="newNameTextBox"
+                                             <DatePicker
+                                                  Width="300"
+                                                  FontSize="18"
+                                                  Margin="0,10,-10,10"
+                                                  Padding="15,2,20,3"
+                                                  materialDesign:HintAssist.Hint="Date"
+                                                  Style="{StaticResource MaterialDesignFilledDatePicker}" />                
+                                        
+                                        <ComboBox
+                                                x:Name="timeslotComboBox"
+                                                Margin="0,10,-10,10"
+                                                Padding="15,2,20,3"
+                                                Style="{StaticResource MaterialDesignFilledComboBox}"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBox}"
+                                                materialDesign:HintAssist.HelperText="Required Field"
+                                                materialDesign:HintAssist.Hint="Time Slot"
+                                                Width="300"
+                                                FontSize="18">
+
+                                            <ComboBoxItem
+                                                    Content="10:00 AM - 12:00PM" />
+                                        </ComboBox>
+                                  
+                                    <TextBox
+                                            x:Name="newTitleTextBox"
                                             Width="300"
-                                            Margin="0,0,0,20"
-                                            Padding="15,2,20,3"
-                                            materialDesign:HintAssist.HelperText="Name is required"
-                                            materialDesign:HintAssist.Hint="Name"
-                                            materialDesign:TextFieldAssist.HasClearButton="True"
+                                            Margin="0,20,-10,20"
+                                            Padding="10,2,20,3"
+                                            materialDesign:HintAssist.HelperText="Required Field"
                                             materialDesign:TextFieldAssist.HasFilledTextField="True"
-                                            FontSize="18"
-                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox
-                                            x:Name="newPhoneTextBox"
-                                            Width="300"
-                                            Margin="0,20,0,20"
-                                            Padding="15,2,20,3"
-                                            materialDesign:HintAssist.HelperText="Please Enter a Phone Number"
-                                            materialDesign:HintAssist.Hint="Phone Number"
-                                            materialDesign:TextFieldAssist.HasClearButton="True"
-                                            materialDesign:TextFieldAssist.HasFilledTextField="True"
-                                            materialDesign:TransitionAssist.DisableTransitions="True"
+                                            materialDesign:HintAssist.Hint="Session Title"                               
                                             FontSize="18"
                                             MaxLength="25"
                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                        <TextBox
-                                            x:Name="newEmailTextBox"
-                                            Width="300"
-                                            Margin="0,20,0,20"
-                                            Padding="15,2,20,3"
-                                            materialDesign:HintAssist.HelperText="Please enter an Email"
-                                            materialDesign:HintAssist.Hint="Email@example.com"
-                                            materialDesign:TextFieldAssist.HasClearButton="True"
-                                            materialDesign:TextFieldAssist.HasFilledTextField="True"
-                                            FontSize="18"
-                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                                    
+                                            <ComboBox
+                                                x:Name="roomComboBox"
+                                                Margin="0,10,-10,10"
+                                                Padding="15,2,20,3"
+                                                Style="{StaticResource MaterialDesignFilledComboBox}"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBox}"
+                                                materialDesign:HintAssist.HelperText="Required Field"
+                                                materialDesign:HintAssist.Hint="Rooms"
+                                                Width="300"
+                                                FontSize="18">
+
+                                                <ComboBoxItem
+                                                    Content="Room 1" />
+                                            </ComboBox>
 
 
 
-
+                                        <ComboBox
+                                                x:Name="speakerComboBox"
+                                                Margin="0,20,-10,35"
+                                                Padding="15,2,20,3"
+                                                Style="{StaticResource MaterialDesignFilledComboBox}"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBox}"
+                                                materialDesign:HintAssist.HelperText="Required Field"
+                                                materialDesign:HintAssist.Hint="Speaker"
+                                                Width="300"
+                                                FontSize="18">
+                                            <ComboBoxItem
+                                                    Content="Speaker 1" />
+                                        </ComboBox>
                                     </StackPanel>
-
-
-
 
 
                                     <StackPanel

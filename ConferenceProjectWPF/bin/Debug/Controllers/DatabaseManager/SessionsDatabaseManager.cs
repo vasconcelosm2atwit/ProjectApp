@@ -49,9 +49,9 @@ namespace ConferenceProjectWPF
                     {
                         Session allSessions = new Session();
                         allSessions.Title = dt.Rows[i]["title"].ToString();
-                        allSessions.TimeSlots = Int16.Parse(dt.Rows[i]["time_slot_id"].ToString());
-                        allSessions.Speaker = Int16.Parse(dt.Rows[i]["speaker_id"].ToString());
-                        allSessions.Room = Int16.Parse(dt.Rows[i]["room_id"].ToString());
+                        allSessions.Timeslot_1 = dt.Rows[i]["time_slots"].ToString();
+                        allSessions.Speaker_1 = dt.Rows[i]["name"].ToString();
+                        allSessions.Room_1 = dt.Rows[i]["room_name"].ToString();
                         allSessions.Date = dt.Rows[i]["session_date"].ToString();
 
                         sessionsList.Add(allSessions);
@@ -71,10 +71,7 @@ namespace ConferenceProjectWPF
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
-                //IF NOT THEN USE
-                /* MySqlCommand mySqlCmdNewRooom = new MySqlCommand("update_sessionTEST", mysqlCon);
-                */
-
+             
                 MySqlCommand mySqlCmdNewRooom = new MySqlCommand("update_session", mysqlCon);
                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
                 mySqlCmdNewRooom.Parameters.AddWithValue("_title ", sessionsToUpdate.Title);
@@ -82,6 +79,7 @@ namespace ConferenceProjectWPF
                 mySqlCmdNewRooom.Parameters.AddWithValue("_speaker_id", sessionsToUpdate.Speaker);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_room_id", sessionsToUpdate.Room);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_date", sessionsToUpdate.Date);
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id", sessionsToUpdate.Id);
 
                 mySqlCmdNewRooom.ExecuteNonQuery();
                 mysqlCon.Close();
@@ -95,19 +93,16 @@ namespace ConferenceProjectWPF
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {
                 mysqlCon.Open();
-                //IF NOT THEN USE
-                /*MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_session", mysqlCon);
-                 mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
+               
+                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_session", mysqlCon);
+                mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
                 mySqlCmdNewRooom.Parameters.AddWithValue("_title ", sessionToDelete.Title);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_time_slots_id", sessionToDelete.TimeSlots);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_speaker_id", sessionToDelete.Speaker);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_room_id", sessionToDelete.Room);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_date", sessionToDelete.Date);
-                */
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id", sessionToDelete.Id);
 
-                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("delete_sessionTEST", mysqlCon);
-                mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
-                mySqlCmdNewRooom.Parameters.AddWithValue("_title ", sessionToDelete.Title);
 
                 mySqlCmdNewRooom.ExecuteNonQuery();
                 mysqlCon.Close();

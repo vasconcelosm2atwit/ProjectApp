@@ -13,7 +13,9 @@ namespace ConferenceProjectWPF
         private int speaker_id;
         private string speaker;
         private string date;
+        private int id;
 
+        public int Id { get { return id; } set { id = value; } }
         public string Title { get { return title; } set { title = value; } }
         public int TimeSlots { get { return timeSlots_id; } set { timeSlots_id = value; } }
         public int Room { get { return room_id; } set { room_id = value; } }

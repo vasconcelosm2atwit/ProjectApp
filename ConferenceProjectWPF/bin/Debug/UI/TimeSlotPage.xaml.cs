@@ -45,7 +45,7 @@ namespace ConferenceProjectWPF.UI
         private void Button_confirm_edit(object sender, RoutedEventArgs e)
         {
             
-            if(EditStartTime.Text != null)
+            if(EditStartTime.Text.Length!=0 && EditEndTime.Text.Length != 0) 
             {
                 if (timeSlotViewModel.checkForDuplicates())
                 {
@@ -54,6 +54,8 @@ namespace ConferenceProjectWPF.UI
                     CollectionViewSource.GetDefaultView(timeSlotViewModel.TimeSlots).Refresh(); //Refresh current List
                     MessageBox.Show("You tried creating a duplicated");
                 }
+
+                timeSlotViewModel.UpdateItem(timeSlotViewModel.SelectedTimeslot);
                 
                 MyDialogHost.IsOpen = false;
             }

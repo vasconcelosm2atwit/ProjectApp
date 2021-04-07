@@ -39,9 +39,10 @@ namespace ConferenceProjectWPF
 
         public SessionViewModel()
         {
-            //  db = new SessionsDatabaseManager();
-            SessionTestData sessionTestData = new SessionTestData();
-           this.Sessions = new ObservableCollection<Session>(sessionTestData.dataFill());
+           db = new SessionsDatabaseManager();
+           SessionTestData sessionTestData = new SessionTestData();
+           this.Sessions = new ObservableCollection<Session>(db.retrieveSessions());
+            
            this.SessionCollection = CollectionViewSource.GetDefaultView(this.Sessions);
 
            SessionCollection.Filter = FilterSpeakers;
