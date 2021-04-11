@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:ConferenceProjectWPF"
         xmlns:fa ="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="768" Width="1200" WindowStartupLocation="CenterScreen"  ResizeMode="CanResize" MinHeight="600" MinWidth="1000"
+        Title="MainWindow" Height="768" Width="1274" WindowStartupLocation="CenterScreen"  ResizeMode="CanResize" MinHeight="768" MinWidth="1224"
         >
 
 
@@ -15,7 +15,7 @@
         <StackPanel DockPanel.Dock="Bottom" Background="red">
 
         </StackPanel>
-        <StackPanel DockPanel.Dock="Left" Background="#FF14234F" Margin="0,0,0,0.4" Width="216"
+        <StackPanel DockPanel.Dock="Left" Background="#FF14234F" Margin="0,0,0,0.4" Width="220"
                     
                     >
 
@@ -30,8 +30,8 @@
                 <StackPanel
                        
                     Orientation="Vertical"
-                    Margin="0,0,0.2,0"
-                    Background="#FF14234F" Height="668"
+                    Margin="0,0,0,0"
+                    Background="#FF14234F" Height="700"
                    
                        >
 
@@ -43,15 +43,15 @@
                       IsChecked="True"
                         
                         Height="90"
-                        Width="187" 
+                        Width="208" 
                         Click="Btn_homeClick" >
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Width="200" Margin="12 0 0 0">
                             <!-- BUTTON ICON-->
                             <materialDesign:PackIcon
                             HorizontalAlignment="Left"
                             Kind="Home"  
-                            Height="40" 
-                            Width="36" />
+                            Height="45" 
+                            Width="45" />
                             <TextBlock 
                             Text="Home" 
                              Margin="5,0,0,0"
@@ -68,9 +68,9 @@
                       Click="btn_sessions"
                         HorizontalAlignment="Left"
                         Height="90" 
-                        Width="187">
+                        Width="200">
                         <StackPanel 
-                        Orientation="Horizontal" Width="121" >
+                        Orientation="Horizontal" Width="208" Margin="17 0 0 0">
                             <!-- BUTTON ICON -->
                             <materialDesign:PackIcon
                             HorizontalAlignment="Left"
@@ -79,7 +79,7 @@
                             Width="36" />
                             <!--BUTTON TEXT-->
                             <TextBlock 
-                            Margin="5,0,0,0"
+                            Margin="7,0,0,0"
                             Text="Sessions" 
                             VerticalAlignment="Bottom"
                             FontSize="20" Height="35"/>
@@ -87,21 +87,21 @@
                     </RadioButton>
                     <RadioButton
                       Style="{StaticResource MaterialDesignTabRadioButton}"
-                      Margin="10,4,0,4"
+                      Margin="4,4,0,4"
                       HorizontalAlignment="Left"
                       IsChecked="False"
-                      Click="btn_timeSlots"
+                      Click="RadioButton_Click"
                       Height="90" 
-                        Width="191">
+                        Width="208">
                         <StackPanel 
-                        Orientation="Horizontal" Width="187" >
+                        Orientation="Horizontal" Width="200" Margin="17 0 0 0" >
                             <!-- BUTTON ICON -->
                             <materialDesign:PackIcon
                             HorizontalAlignment="Left"
                             Kind="Counter"  
                             Height="40"
-                            Margin="10,0,0,0"
-                            Width="40" />
+                            Margin="0,0,0,0"
+                            Width="39" />
                             <!--BUTTON TEXT-->
                             <TextBlock 
                             Margin="5,0,0,0"
@@ -116,10 +116,10 @@
                       Margin="4,4,0,4"
                       IsChecked="False"
                         Height="90"
-                        Width="187"
+                        Width="208"
                         Click="Btn_rooms">
                         <StackPanel 
-                        Orientation="Horizontal" >
+                        Orientation="Horizontal" Width="200" Margin="18 0 0 0" >
                             <!-- BUTTON ICON -->
                             <materialDesign:PackIcon
 
@@ -143,10 +143,10 @@
                       IsChecked="False"
                       Click="btn_speakers"
                       Height="90"
-                      Width="187"
+                      Width="208"
                         HorizontalAlignment="Left" >
                         <StackPanel 
-                        Orientation="Horizontal" Width="121" >
+                        Orientation="Horizontal" Width="200" Margin="18 0 0 0">
                             <!-- BUTTON ICON -->
                             <materialDesign:PackIcon
                             HorizontalAlignment="Left"
@@ -169,9 +169,9 @@
                       IsChecked="False"
                       Click="btn_timeSlots"
                       Height="90" 
-                        Width="187">
+                        Width="208">
                         <StackPanel 
-                        Orientation="Horizontal" Width="150" >
+                        Orientation="Horizontal" Width="200" Margin="5 0 0 0">
                             <!-- BUTTON ICON -->
                             <materialDesign:PackIcon
                             HorizontalAlignment="Left"
@@ -193,7 +193,7 @@
                       Margin="130,10,0,4"
                       HorizontalAlignment="Left"
                       IsChecked="False"
-                      Click="btn_timeSlots"
+                      Click="RadioButton_Click_1"
                       Height="56" 
                         Width="56">
                         <StackPanel 
@@ -205,12 +205,7 @@
                             Height="40"
                             Margin="1,0,0,0"
                             Width="40" />
-                            <!--BUTTON TEXT-->
-                            <TextBlock 
-                            Margin="5,0,0,0"
-                            Text="" 
-                            VerticalAlignment="Bottom"
-                            FontSize="20" Height="35" Width="106"/>
+                            
                         </StackPanel>
                     </RadioButton>
 
@@ -227,7 +222,7 @@
 
 
 
-        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Background="#FFF7F4F4" Margin="0,0,0,0.4" Width="927"/>
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Background="#FFF7F4F4" Margin="0,0,0,5" />
 
 
 

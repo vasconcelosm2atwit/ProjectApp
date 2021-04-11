@@ -20,8 +20,12 @@ namespace ConferenceProjectWPF.UI
     /// </summary>
     public partial class SessionPage : Page
     {
-        string holdStart_time;
-        string holdEnd_time;
+        // Date, timeslot, title, room, speaker
+        string holdDate;
+        string holdTimeSlot;
+        string holdTitle;
+        string holdRoom;
+        string holdSpeaker;
         SessionViewModel sessionViewModel = new SessionViewModel();
 
         public SessionPage()
@@ -29,11 +33,20 @@ namespace ConferenceProjectWPF.UI
             InitializeComponent();
 
             this.DataContext = sessionViewModel;
+           // timeslotComboBox.ItemsSource = sessionViewModel.AvailableTimeSlots;
+            //speakerComboBox.ItemsSource = sessionViewModel.AvailableSpeakers;
+
+            
         }
 
 
         private void Button_open_edit(object sender, RoutedEventArgs e)
         {
+            holdDate = sessionViewModel.SelectedItem.Date;
+            holdTimeSlot = sessionViewModel.SelectedItem.Timeslot_1;
+            holdTitle = sessionViewModel.SelectedItem.Title;
+            holdRoom = sessionViewModel.SelectedItem.Room_1;
+            holdSpeaker = sessionViewModel.SelectedItem.Speaker_1;
 
 
             MyDialogHost.IsOpen = true;
@@ -42,14 +55,63 @@ namespace ConferenceProjectWPF.UI
         private void Button_confirm_edit(object sender, RoutedEventArgs e)
         {
 
+            if (sessionViewModel.SelectedItem.Date.Length != 0 && sessionViewModel.SelectedItem.Timeslot_1.Length != 0 &&
+                sessionViewModel.SelectedItem.Title.Length != 0 && sessionViewModel.SelectedItem.Speaker_1.Length != 0 &&
+                sessionViewModel.SelectedItem.Room_1.Length != 0
+                )
+            {
+
+                // check if there is already a session going on the new room being edited to
+                // check newRoom == anotherRoom timeslot and date
+
+                //datePicker1
+                //timeslotComboBox
+                //roomComboBox
+                //speakerComboBox
+                //titleTextBox
+
+                
+
+                Session a = sessionViewModel.SelectedItem;
+
+                
+                if (sessionViewModel.checkIfExists(sessionViewModel.SelectedItem))
+                {
+
+                    MessageBox.Show("This Room is taken on this timeslot and Date");
+                    return;
+
+                }
+
+                sessionViewModel.EditSession(sessionViewModel.SelectedItem);
+                MyDialogHost.IsOpen = false;
 
 
-            MyDialogHost.IsOpen = false;
+
+            }
+            else
+            {
+
+                MessageBox.Show("Fields cannot be empty");
+
+            }
 
         }
 
         private void Button_cancel_edit(object sender, RoutedEventArgs e)
         {
+            /**string holdDate;
+        string holdTimeSlot;
+        string holdTitle;
+        string holdRoom;
+        string holdSpeaker;*/
+            sessionViewModel.SelectedItem.Date = holdDate;
+            sessionViewModel.SelectedItem.Timeslot_1 = holdTimeSlot;
+            sessionViewModel.SelectedItem.Title = holdTitle;
+            sessionViewModel.SelectedItem.Room_1 = holdRoom;
+            sessionViewModel.SelectedItem.Speaker_1= holdSpeaker;
+
+            CollectionViewSource.GetDefaultView(sessionViewModel.Sessions).Refresh(); //Refresh current List
 
             MyDialogHost.IsOpen = false;
         }
@@ -64,7 +126,15 @@ namespace ConferenceProjectWPF.UI
         {
 
 
-            deletePopUp.IsOpen = false;
+            if (sessionViewModel.SelectedItem != null)
+            {
+                sessionViewModel.DeleteItem();
+                deletePopUp.IsOpen = false;
+            }
+            else
+            {
+                return;
+            }
 
 
         }
@@ -76,12 +146,67 @@ namespace ConferenceProjectWPF.UI
 
         private void Button_open_createTimeSlot(object sender, RoutedEventArgs e)
         {
+
             createDialogHost.IsOpen = true;
 
         }
 
         private void Button_confirm_creation(object sender, RoutedEventArgs e)
         {
+            // IF SELECTED ITEM IS NULL THEN ADD IT TO SPEAKER
+            Speaker speaker = (Speaker) newSpeakerComboBox.SelectedItem;
+            TimeSlot timeSlot = (TimeSlot) newTimeslotComboBox.SelectedItem;
+            Room room = (Room) newRoomComboBox.SelectedItem;
+            Console.WriteLine(newSpeakerComboBox.Text);
+            Session newSession = new Session();
+            newSession.Room = room.Id;
+            newSession.Room_1 = room.Name;
+            if(speaker != null) 
+            {
+                newSession.Speaker = speaker.Id;
+                newSession.Speaker_1 = speaker.Name;
+            }
+            else
+            {
+               
+                newSession.Speaker_1 = newSpeakerComboBox.Text;
+                Speaker newSpeaker = new Speaker(newSpeakerComboBox.Text);
+                SpeakerDatabaseManager sp = new SpeakerDatabaseManager();
+                sp.addSpeaker(newSpeaker);
+            }
+
+            
+            newSession.TimeSlots = timeSlot.Id;
+            newSession.Timeslot_1 = timeSlot.ConcatTimeSlot;
+            newSession.Title = newTitleTextBox.Text;
+            newSession.Date = newDate.Text;
+
+            if (sessionViewModel.checkIfExists(newSession))
+            {
+
+                MessageBox.Show("This Room is taken on this timeslot and Date");
+                return;
+                
+            }
+            AttendanceDatabaseManager ad = new AttendanceDatabaseManager();
+            Attendance attendance = new Attendance();
+            attendance.Session_id = sessionViewModel.creatingSessions(newSession);
+            //Console.WriteLine(attendance.Session_id);
+
+            attendance.Count_beg = 0;
+            attendance.Count_mid = 0;
+            attendance.Count_end = 0;
+
+            ad.addCount(attendance);
+
+
+
+            // timeslot
+            // speaker
+            // title
+            // date
+            // room
+
 
             createDialogHost.IsOpen = false;
         }
@@ -91,5 +216,9 @@ namespace ConferenceProjectWPF.UI
             createDialogHost.IsOpen = false;
         }
 
+        private void timeslotComboBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

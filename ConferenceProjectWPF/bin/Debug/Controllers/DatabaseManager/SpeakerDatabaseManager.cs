@@ -62,8 +62,37 @@ namespace ConferenceProjectWPF
             }
         }
 
+        public Speaker get_speaker_by_id(int id)
+        {
+            using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
+            {
+                DataTable dt = new DataTable();
+                mysqlCon.Open();
+                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("get_speaker_by_id", mysqlCon);
+                mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id ", id);
+                MySqlDataReader da = mySqlCmdNewRooom.ExecuteReader();
+
+                Speaker speaker = new Speaker();
+                while (da.Read())
+                {
+                    speaker.Id = Convert.ToInt32(da["speaker_id"]);
+                    speaker.Name = Convert.ToString(da["name"]);
+                    speaker.Email = Convert.ToString(da["email"]);
+                    speaker.PhoneNumber = Convert.ToString(da["phone_number"]);
+                }
+
+
+
+                // mySqlCmdNewRooom.ExecuteNonQuery();
+                mysqlCon.Close();
+
+                return speaker;
+            }
+        }
+
         //############################################### UPDATE ###############################################
-            public void updateSpeaker(Speaker speakerToUpdate)
+        public void updateSpeaker(Speaker speakerToUpdate)
             {
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
             {

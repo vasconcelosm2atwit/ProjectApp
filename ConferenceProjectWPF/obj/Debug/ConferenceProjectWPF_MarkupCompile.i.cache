@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\vasconcelosm1\OneDrive - Wentworth Institute of Technology\Desktop\Group Project\ProjectApp\ConferenceProjectWPF\obj\Debug\
+C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\obj\Debug\
 ConferenceProjectWPF
 none
 false
 DEBUG;TRACE
-C:\Users\vasconcelosm1\OneDrive - Wentworth Institute of Technology\Desktop\Group Project\ProjectApp\ConferenceProjectWPF\App.xaml
-6782628298
+C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\App.xaml
+81474841261
 
-261465426915
-132-1753850982
-UI\HomePage.xaml;MainWindow.xaml;UI\RoomPage.xaml;UI\SessionPage.xaml;UI\TimeSlotPage.xaml;UI\SpeakerPage.xaml;
+311815297285
+1321710634081
+UI\AttendancePage.xaml;UI\HomePage.xaml;MainWindow.xaml;UI\LogPage.xaml;UI\RoomPage.xaml;UI\SessionPage.xaml;UI\TimeSlotPage.xaml;UI\SpeakerPage.xaml;
 
 True
 

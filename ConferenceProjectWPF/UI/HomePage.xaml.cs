@@ -31,7 +31,7 @@ namespace ConferenceProjectWPF
 
             Card1.ItemsSource = sessionViewModel.Sessions;
             Card2.ItemsSource = sessionViewModel.Sessions;
-            Card3.ItemsSource = sessionViewModel.Sessions;
+            //Card3.ItemsSource = sessionViewModel.Sessions;
 
         }
         
@@ -39,6 +39,19 @@ namespace ConferenceProjectWPF
         private void homePageTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MyDialogHost.IsOpen = true;
+        }
+        private void Button_confirm_edit(object sender, RoutedEventArgs e)
+        {
+            MyDialogHost.IsOpen = false;
+        }
+        private void Button_cancel_edit(object sender, RoutedEventArgs e)
+        {
+            MyDialogHost.IsOpen = false;
         }
     }
 }

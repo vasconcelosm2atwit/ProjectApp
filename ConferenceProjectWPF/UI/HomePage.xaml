@@ -18,7 +18,6 @@
             Margin="50,0,0,0"
             HorizontalAlignment="Center"
             DockPanel.Dock="Top">
-
             <StackPanel Orientation="Horizontal">
                 <TextBlock
                     Margin="200,20,0,0"
@@ -34,11 +33,7 @@
                     FontSize="18"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                     Text="05/12/2021" />
-
             </StackPanel>
-
-
-
 
         </StackPanel>
         <StackPanel HorizontalAlignment="Center">
@@ -63,7 +58,6 @@
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </StackPanel>
-
                 </materialDesign:Card>
                 <materialDesign:Card
                     Width="200"
@@ -106,10 +100,7 @@
                             TextAlignment="Center" />
                     </StackPanel>
                 </materialDesign:Card>
-
             </StackPanel>
-
-
 
             <StackPanel
                 Width="1000"
@@ -117,7 +108,6 @@
                 Margin="0,0,0,0"
                 Orientation="Horizontal">
                 <!--  CARD 1  -->
-
                 <ScrollViewer>
                     <materialDesign:Card
                         Width="270"
@@ -129,7 +119,6 @@
                         <ItemsControl x:Name="Card1">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-
                                     <materialDesign:Card
                                         Width="250"
                                         Height="100"
@@ -138,7 +127,6 @@
                                         Background="White"
                                         Foreground="Black"
                                         UniformCornerRadius="6">
-
                                         <StackPanel Orientation="Horizontal">
                                             <StackPanel
                                                 Width="180"
@@ -164,24 +152,25 @@
                                                     Text="{Binding Timeslot_1}"
                                                     TextWrapping="Wrap" />
                                             </StackPanel>
-                                            <Button Margin="0,0,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                            <StackPanel
+                                                Margin="-13 10 0 0"
+                                                >
+                                            <Button Margin="0,0,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                                    Click="Button_Click">
                                                 <materialDesign:PackIcon
                                                     Width="25"
                                                     Height="25"
                                                     Kind="AccountMultiplePlus" />
                                             </Button>
+                                                <TextBlock Text="Add Count" FontSize="10"/> 
+                                            </StackPanel>
                                         </StackPanel>
-
                                     </materialDesign:Card>
-
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-
                     </materialDesign:Card>
                 </ScrollViewer>
-
-
 
                 <!--  CARD 2  -->
                 <ScrollViewer>
@@ -195,7 +184,6 @@
                         <ItemsControl x:Name="Card2">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-
                                     <materialDesign:Card
                                         Width="250"
                                         Height="100"
@@ -204,7 +192,6 @@
                                         Background="White"
                                         Foreground="Black"
                                         UniformCornerRadius="6">
-
                                         <StackPanel Orientation="Horizontal">
                                             <StackPanel
                                                 Width="180"
@@ -236,14 +223,12 @@
                                                     Height="25"
                                                     Kind="AccountMultiplePlus" />
                                             </Button>
+                                            <TextBlock Text="Attendance" Margin="-45  0 0 0" FontSize="10"/>
                                         </StackPanel>
-
                                     </materialDesign:Card>
-
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-
                     </materialDesign:Card>
                 </ScrollViewer>
 
@@ -257,12 +242,9 @@
                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                         UniformCornerRadius="10">
                         <StackPanel>
-
-
                             <ItemsControl x:Name="Card3">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-
                                         <materialDesign:Card
                                             Width="250"
                                             Height="100"
@@ -271,7 +253,6 @@
                                             Background="White"
                                             Foreground="Black"
                                             UniformCornerRadius="6">
-
                                             <StackPanel Orientation="Horizontal">
                                                 <StackPanel
                                                     Width="180"
@@ -303,18 +284,120 @@
                                                         Height="25"
                                                         Kind="AccountMultiplePlus" />
                                                 </Button>
+                                                
+                                                
                                             </StackPanel>
-
                                         </materialDesign:Card>
-
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </StackPanel>
                     </materialDesign:Card>
                 </ScrollViewer>
+                <materialDesign:DialogHost
+                x:Name="MyDialogHost"
+                VerticalAlignment="Center"
+                IsOpen="False"
+                CloseOnClickAway="True"
+                OverlayBackground="{DynamicResource PrimaryHueDarkBrush}"
+                DialogTheme="Inherit" RenderTransformOrigin="0.496,0.255"
+                Margin="-800,0,0,232"
+                Height="550"
+                >
+                    <materialDesign:DialogHost.DialogContent>
+                        <Grid Margin="10"
+                          Width="350"
+                          Height="365">
+                            <StackPanel Margin="10,0,10 0">
+                                <StackPanel 
+                                    HorizontalAlignment="Center"
+                                    Margin="0 10 0 0"
+                                Width="300"
+                                >
 
+                                    <TextBlock 
+                                    Text="Attendance Count"
+                                    HorizontalAlignment="center"
+                                    FontWeight="Bold"
+                                    FontSize="15"
+                                    Margin="0 0 0 10"
+                                    />
+
+
+                                    <TextBox
+                                      x:Name="NameTextBox"
+                                        materialDesign:HintAssist.Hint="Beg Count"
+                                        Text="0"
+                                        materialDesign:HintAssist.HelperText="Numeric Only"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                        FontSize="18"
+                                        Width="300"
+                                        Padding="15 2 20 3"
+                                        Margin="0 0 0 20"
+                                        materialDesign:TextFieldAssist.HasClearButton="True"
+                                        materialDesign:TextFieldAssist.HasFilledTextField="True"
+                                    >
+
+
+                                    </TextBox>
+                                    <TextBox
+                                       x:Name="CapacityTextBox"
+                                        materialDesign:HintAssist.Hint="Med Count"
+                                        materialDesign:HintAssist.HelperText="Numeric Only"
+                                        Text="0"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                        FontSize="18"
+                                        Width="300"
+                                        Padding="15 2 20 3"
+                                        Margin="0 20 0 20"
+                                        materialDesign:TextFieldAssist.HasClearButton="True"
+                                        materialDesign:TextFieldAssist.HasFilledTextField="True" />
+
+                                    <TextBox
+                                       Text="0"
+                                        materialDesign:HintAssist.Hint="End Count"
+                                        materialDesign:HintAssist.HelperText="Numeric Only"
+                                        
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                        FontSize="18"
+                                        Width="300"
+                                        Padding="15 2 20 3"
+                                        Margin="0 20 0 20"
+                                        materialDesign:TextFieldAssist.HasClearButton="True"
+                                        materialDesign:TextFieldAssist.HasFilledTextField="True" />
+
+
+                                </StackPanel>
+                                <StackPanel 
+                                Orientation="Horizontal" 
+                                Margin="0,40,0,0" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Bottom">
+                                    <Button 
+                                    Content="Confirm" 
+                                    Click="Button_confirm_edit" 
+                                    Width="100"/>
+                                    <Button 
+                                    Content="Cancel" 
+                                    Click="Button_cancel_edit" 
+                                    Width="100" 
+                                    Margin="50,0,0,0" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </materialDesign:DialogHost.DialogContent>
+
+
+                    <Border
+                BorderThickness="0"
+                BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                MinWidth="256"
+                MinHeight="256"
+                ClipToBounds="True">
+                    </Border>
+                </materialDesign:DialogHost>
             </StackPanel>
+            
         </StackPanel>
     </DockPanel>
 </Page>

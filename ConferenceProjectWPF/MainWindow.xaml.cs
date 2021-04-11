@@ -54,5 +54,15 @@ namespace ConferenceProjectWPF
         {
             Main.Content = new UI.SpeakerPage();
         }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new UI.AttendancePage();
+        }
+
+        private void RadioButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new UI.LogPage();
+        }
     }
 }

@@ -15,6 +15,10 @@ namespace ConferenceProjectWPF
     {
 
         public ObservableCollection<Session> Sessions { get; set; }
+        public List<Session> dbList { get; set; }
+        public ObservableCollection<TimeSlot> AvailableTimeSlots { get; set; }
+        public ObservableCollection<Speaker> AvailableSpeakers { get; set; }
+        public ObservableCollection<Room> AvailableRooms { get; set; }
 
         public ICollectionView SessionCollection { get; set; }
         SessionsDatabaseManager db;
@@ -41,16 +45,51 @@ namespace ConferenceProjectWPF
         {
            db = new SessionsDatabaseManager();
            SessionTestData sessionTestData = new SessionTestData();
-           this.Sessions = new ObservableCollection<Session>(db.retrieveSessions());
-            
+           this.Sessions = new ObservableCollection<Session>(db.getSessions());
+
+
+           this.dbList = new List<Session>(db.retrieveSessions());
+
+
            this.SessionCollection = CollectionViewSource.GetDefaultView(this.Sessions);
 
-           SessionCollection.Filter = FilterSpeakers;
+            TimeSlotsDatabaseManager ts = new TimeSlotsDatabaseManager();
+           this.AvailableTimeSlots = new ObservableCollection<TimeSlot>(ts.retrieveTimeSlots());
+            
+            this.AvailableSpeakers = new ObservableCollection<Speaker>(db.getAllSpeakers());
+
+            this.AvailableRooms = new ObservableCollection<Room>(db.getAllRooms());
+
+            SessionCollection.Filter = FilterSpeakers;
         }
 
-        public void creatingSessions()
+        public int creatingSessions(Session session)
         {
+            bool isError = false;
 
+            try
+            {
+                
+                db.addSession(session);
+            }
+            catch (Exception ex)
+            {
+                isError = true;
+                Console.WriteLine(ex);
+                Console.WriteLine("Failed to update the Database ---  check error ABOVE");
+            }
+            
+            Sessions.Add(session);
+            //return isError;
+
+            foreach(Session s in db.retrieveSessions())
+            {
+                if(session.Title == s.Title)
+                {
+                    return s.Id;
+                }
+            }
+            return -1;
         }
 
 
@@ -69,7 +108,7 @@ namespace ConferenceProjectWPF
             bool catchError = false;
             try
             {
-              //  db.updateSessions(session);
+                db.updateSessions(session);
             }
             catch (Exception ex)
             {
@@ -79,6 +118,74 @@ namespace ConferenceProjectWPF
             }
 
             return catchError;
+        }
+
+        public bool checkForDuplicates()
+        {
+            List<Session> copy = new List<Session>(Sessions);
+
+            var dups = copy.GroupBy(i => new { i.Date, i.Timeslot_combo }).Select(g => new
+            {
+                Length = g.Key.Date,
+                Label = g.Key.Timeslot_combo,
+                Count = g.Count()
+            }).Where(g => g.Count > 1);
+
+            //Console.WriteLine(dups.Any());
+
+            return dups.Any();
+        }
+
+        public bool DeleteItem()
+        {
+
+            bool isError = false;
+            try
+            {
+                db.deleteSession(this.SelectedItem);
+            }
+            catch (Exception ex)
+            {
+                isError = true;
+                Console.WriteLine(ex);
+                Console.WriteLine("Failed to update the Database ---  check error ABOVE");
+            }
+            Sessions.Remove(this.SelectedItem);
+            
+
+
+            return isError;
+        }
+
+        public bool checkIfExists(Session s)
+        {
+            
+            s.RealDate = DateTime.Parse(s.Date);
+            foreach(Session i in dbList)
+            { 
+                i.RealDate = DateTime.Parse(i.Date);
+                if ((s.Timeslot_1.Equals(i.Timeslot_1) && s.RealDate.Equals(i.RealDate)) &&  s.Room_1.Equals(i.Room_1))
+                {
+                   
+                    return true;
+                }
+            }
+
+
+            return false;
+        }
+
+        public bool IsRoomTaken(Session s)
+        {
+            foreach (Session i in dbList)
+            {
+                if (s.Room_1 == i.Room_1 && (s.Timeslot_1 == i.Timeslot_1 && s.Date == i.Date))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
 

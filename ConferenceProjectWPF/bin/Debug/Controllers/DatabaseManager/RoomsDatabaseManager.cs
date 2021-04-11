@@ -27,6 +27,34 @@ namespace ConferenceProjectWPF
             }
         }
 
+        public Room get_room_by_id(int id)
+        {
+            using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
+            {
+                DataTable dt = new DataTable();
+                mysqlCon.Open();
+                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("get_room_by_id", mysqlCon);
+                mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id ", id);
+                MySqlDataReader da = mySqlCmdNewRooom.ExecuteReader();
+
+                Room room = new Room();
+                while (da.Read())
+                {
+                    
+                    room.Id = Convert.ToInt32(da["room_id"]);
+                    room.Name = Convert.ToString(da["room_name"]);
+                    room.Capacity = Convert.ToInt32(da["capacity"]);
+                }
+
+
+                // mySqlCmdNewRooom.ExecuteNonQuery();
+                mysqlCon.Close();
+
+                return room;
+            }
+        }
+
         //############################################### RETRIEVE ###############################################
         public List<Room> RetrieveRooms()
         {

@@ -29,6 +29,34 @@ namespace ConferenceProjectWPF
             }
         }
 
+        public TimeSlot get_timeslot_by_id(int id)
+        {
+            using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
+            {
+                DataTable dt = new DataTable();
+                mysqlCon.Open();
+                MySqlCommand mySqlCmdNewRooom = new MySqlCommand("get_timeslot_by_id", mysqlCon);
+                mySqlCmdNewRooom.CommandType = CommandType.StoredProcedure;
+                mySqlCmdNewRooom.Parameters.AddWithValue("_id ", id);
+                MySqlDataReader da = mySqlCmdNewRooom.ExecuteReader();
+
+                TimeSlot timeSlot = new TimeSlot();
+                while (da.Read())
+                {
+                    timeSlot.Id = Convert.ToInt32(da["time_slots_id"]);
+                    timeSlot.Start_time = Convert.ToString(da["start_time"]);
+                    timeSlot.End_time = Convert.ToString(da["end_time"]);
+                }
+
+
+
+                // mySqlCmdNewRooom.ExecuteNonQuery();
+                mysqlCon.Close();
+
+                return timeSlot;
+            }
+        }
+
         //############################################### RETRIEVE ###############################################
         public List<TimeSlot> retrieveTimeSlots()
         {
