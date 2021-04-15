@@ -161,6 +161,7 @@ namespace ConferenceProjectWPF.UI
             Session newSession = new Session();
             newSession.Room = room.Id;
             newSession.Room_1 = room.Name;
+
             if(speaker != null) 
             {
                 newSession.Speaker = speaker.Id;
@@ -173,6 +174,14 @@ namespace ConferenceProjectWPF.UI
                 Speaker newSpeaker = new Speaker(newSpeakerComboBox.Text);
                 SpeakerDatabaseManager sp = new SpeakerDatabaseManager();
                 sp.addSpeaker(newSpeaker);
+                List<Speaker> allSps = new List<Speaker>(sp.retrieveSpeakers());
+                foreach(Speaker i in allSps)
+                {
+                    if (i.Name.Equals(newSession.Speaker_1))
+                    {
+                        newSession.Speaker = i.Id;
+                    }
+                }
             }
 
             
@@ -190,8 +199,20 @@ namespace ConferenceProjectWPF.UI
             }
             AttendanceDatabaseManager ad = new AttendanceDatabaseManager();
             Attendance attendance = new Attendance();
-            attendance.Session_id = sessionViewModel.creatingSessions(newSession);
-            //Console.WriteLine(attendance.Session_id);
+            sessionViewModel.creatingSessions(newSession);
+
+            SessionsDatabaseManager sd = new SessionsDatabaseManager();
+            foreach(Session s in sd.getSessions())
+            {
+               if(newSession.TimeSlots == s.TimeSlots && newSession.Speaker == s.Speaker)
+               {
+                        Console.WriteLine("NAME" + s.Speaker_1);
+                        attendance.Session_id = s.Id;
+               }
+            }
+            
+
+            Console.WriteLine("aa " + attendance.Session_id);
 
             attendance.Count_beg = 0;
             attendance.Count_mid = 0;
@@ -207,7 +228,7 @@ namespace ConferenceProjectWPF.UI
             // date
             // room
 
-
+            
             createDialogHost.IsOpen = false;
         }
 

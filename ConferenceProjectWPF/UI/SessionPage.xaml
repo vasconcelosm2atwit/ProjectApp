@@ -32,7 +32,7 @@
                         <materialDesign:PackIcon
                             Width="30"
                             Height="30"
-                            Margin="18,0,0,0"
+                            Margin="0,0,0,0"
                             Foreground="Purple"
                             Kind="Search" />
                         <TextBox
@@ -45,7 +45,7 @@
                             Text="{Binding SessionFilter, UpdateSourceTrigger=PropertyChanged}" />
                         <Button
                             Width="200"
-                            Margin="540,0,0,0"
+                            Margin="568,0,0,0"
                             HorizontalAlignment="Right"
                             Click="Button_open_createTimeSlot"
                             Content="Create Session" />
@@ -390,7 +390,7 @@
                                             HorizontalAlignment="center"
                                             FontSize="15"
                                             FontWeight="Bold"
-                                            Text="Create New Session" />
+                                            Text="Create Session" />
 
 
                                         <DatePicker

@@ -3,10 +3,15 @@ using System.ComponentModel;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// CONTAINS THE INOTIFY PROPERTY CHANGED
+    /// 
+    /// SERVES AS AN INTERFACE FOR THE OTHER CLASSES TO USE PROPERTY CHANGED INTERFACE.
+    /// 
+    /// 
+    /// </summary>
     class Model : INotifyPropertyChanged
     {
-        // ObservableCollection<TimeSlot> ListOfSlots;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void onPropertyChanged(string info)

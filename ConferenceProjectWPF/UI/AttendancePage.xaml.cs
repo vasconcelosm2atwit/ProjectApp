@@ -1,76 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ConferenceProjectWPF.UI
-{
+
     /// <summary>
-    /// Interaction logic for AttendancePage.xaml
+    /// 
+    /// ATTENDANCE PAGE SETUP
+    /// - SHOW ATTENDANCE GRID
+    /// - ADD COUNT TO EACH ATTENDANCE
+    /// - UPDATE COOUNT FOR EACH ATTENDANCE
+    /// 
     /// </summary>
+{
     public partial class AttendancePage : Page
     {
-        AttendanceViewModel attendanceViewModel = new AttendanceViewModel();
+        AttendanceViewModel attendanceViewModel = new AttendanceViewModel(); // STARTS DATA VIEW
+        // HOLDS CURRENT AMMOUNT
+        int oldBegAmount; 
+        int oldMedAmount;
+        int oldEndAmount;
         public AttendancePage()
         {
             InitializeComponent();
 
-            this.DataContext = attendanceViewModel;
-           
+            this.DataContext = attendanceViewModel; // LINK PAGE TO DATA
+            // ADDING AN EMPTY DATA TO THE COMBO BOX TO ALLOW RESET
+            TimeSlot tm = new TimeSlot(); 
+            attendanceViewModel.timeslots.Add(tm);
+
+            // ADD TIMESLOTS TO COMBOBOX
             TimeslotCB.ItemsSource = attendanceViewModel.timeslots;
-           // attendanceViewModel.SelectedItem = attendanceViewModel.Attendances[0];
-            //TimeslotCB.SelectedItem = attendanceViewModel.timeslots[1].ConcatTimeSlot;
-
-
         }
 
-        private void DataGridTextColumn_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            Console.WriteLine("left");
-        }
-
-        private void DataGridTextColumn_KeyDown(object sender, KeyEventArgs e)
-        {
-            Console.WriteLine("left");
-        }
-
-        private void countGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        {
-            Console.WriteLine(attendanceViewModel.SelectedItem.Count_beg);
-        }
-
-        private void countGrid_CurrentCellChanged(object sender, EventArgs e)
-        {
-           // Console.WriteLine(attendanceViewModel.SelectedItem.Count_beg);
-        }
-
+        /// <summary>
+        /// ADDING OR UPDATING COUNT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void countGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-           // Console.WriteLine("Starting update");
-           // Console.WriteLine(attendanceViewModel.SelectedItem.Count_beg);
-            Attendance a = (Attendance)e.Row.Item;
-            Console.WriteLine(" end ->" + a.Count_beg + " - " + a.Count_mid + " - " + a.Count_end);
-            attendanceViewModel.updateAttendance(attendanceViewModel.SelectedItem);
+            Attendance temp = (Attendance)e.Row.Item;
+            Console.WriteLine(temp.Count_beg);
+            if(temp.Count_beg > temp.Capacity || temp.Count_mid > temp.Capacity || temp.Count_end > temp.Capacity)
+            {
+                MessageBox.Show("Count cannot be bigger than Capacity. Room Capacity: " + temp.Capacity);
+                temp.Count_beg = oldBegAmount;
+                temp.Count_mid = oldMedAmount;
+                temp.Count_end = oldEndAmount;
+            }
+            else
+            {
+                attendanceViewModel.updateAttendance(temp);
+            }
         }
 
         private void countGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-            
-          //  Console.WriteLine(attendanceViewModel.SelectedItem.Count_beg);
-           // Console.WriteLine("Ending update");
-            Attendance a = (Attendance) e.Row.Item;
-            Console.WriteLine( " beg ->" + a.Count_beg + " - " + a.Count_mid + " - " + a.Count_end);
-
+            Attendance temp = (Attendance) e.Row.Item;
+            oldBegAmount = temp.Count_beg;
+            oldMedAmount = temp.Count_mid;
+            oldEndAmount = temp.Count_end;
         }
     }
 }

@@ -46,10 +46,10 @@
                             Text="{Binding SpeakerFilter, UpdateSourceTrigger=PropertyChanged}" />
                         <Button
                             Width="200"
-                            Margin="366,0,0,0"
+                            Margin="369,0,0,0"
                             HorizontalAlignment="Right"
                             Click="Button_open_createTimeSlot"
-                            Content="Create New Speaker" />
+                            Content="Create Speaker" />
 
                     </StackPanel>
                 </Grid>
@@ -90,7 +90,7 @@
                     </DataGrid.Resources>
                     <DataGrid.Columns>
                         <DataGridTextColumn
-                            Width="225"
+                            Width="200"
                             Binding="{Binding Name}"
                             Header="Name"
                             IsReadOnly="True">
@@ -101,7 +101,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
                         <DataGridTextColumn
-                            Width="225"
+                            Width="200"
                             Binding="{Binding Email}"
                             Header="Email"
                             IsReadOnly="True">
@@ -112,7 +112,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
                         <DataGridTextColumn
-                            Width="225"
+                            Width="200"
                             Binding="{Binding PhoneNumber}"
                             Header="Phone Number"
                             IsReadOnly="True">
@@ -187,7 +187,7 @@
                 <materialDesign:DialogHost.DialogContent>
                     <Grid
                         Width="350"
-                        Height="405"
+                        Height="350"
                         Margin="10">
                         <StackPanel Margin="10,0,10,0">
                             <StackPanel
@@ -250,7 +250,7 @@
 
                             </StackPanel>
                             <StackPanel
-                                Margin="0,40,0,0"
+                                Margin="0,22,0,0"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom"
                                 Orientation="Horizontal">
@@ -326,7 +326,7 @@
                 <materialDesign:DialogHost.DialogContent>
                     <Grid
                         Width="350"
-                        Height="405"
+                        Height="380"
                         Margin="10">
                         <StackPanel Margin="20,20,20,0">
 
@@ -342,7 +342,7 @@
                                             HorizontalAlignment="center"
                                             FontSize="15"
                                             FontWeight="Bold"
-                                            Text="Create a New Speaker" />
+                                            Text="Create Speaker" />
 
 
                                         <TextBox
@@ -393,7 +393,7 @@
 
 
                                     <StackPanel
-                                        Margin="0,5,0,0"
+                                        Margin="0,30,0,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Bottom"
                                         Orientation="Horizontal">

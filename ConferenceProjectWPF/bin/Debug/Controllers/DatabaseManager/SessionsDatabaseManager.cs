@@ -5,6 +5,9 @@ using System.Data;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// HANDLES DATABASE CONNECTION FOR SESSION TABLE AND ENTITY
+    /// </summary>
     class SessionsDatabaseManager
     {
         string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
@@ -26,8 +29,13 @@ namespace ConferenceProjectWPF
                 mySqlCmdNewRooom.Parameters.AddWithValue("_room_id", new_session.Room);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_date", new_session.RealDate);
 
-
-                mySqlCmdNewRooom.ExecuteNonQuery();
+                try
+                {
+                    mySqlCmdNewRooom.ExecuteNonQuery();
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 mysqlCon.Close();
             }
         }
@@ -76,7 +84,10 @@ namespace ConferenceProjectWPF
             return sessionsList;
         }
 
-
+        /// <summary>
+        /// ALL SESSIONS FROM SESSION TABLE
+        /// </summary>
+        /// <returns></returns>
         public List<Session> getSessions()
         {
             List<Session> sessionList = new List<Session>();
@@ -124,8 +135,10 @@ namespace ConferenceProjectWPF
 
         }
 
-        
-
+        /// <summary>
+        /// ALL AVAILABLE TIME SLOTS
+        /// </summary>
+        /// <returns></returns>
         public List<TimeSlot> getAvailableTimeSlots()
         {
             List<TimeSlot> timeslotList = new List<TimeSlot>();
@@ -180,6 +193,10 @@ namespace ConferenceProjectWPF
             }
         }
 
+        /// <summary>
+        /// ACCESS ALL SPEAKERS FROM SPEAKER TABLE
+        /// </summary>
+        /// <returns></returns>
         public List<Speaker> getAllSpeakers()
         {
             List<Speaker> speakerList = new List<Speaker>();

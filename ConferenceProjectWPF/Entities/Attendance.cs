@@ -1,7 +1,10 @@
-﻿
-
-namespace ConferenceProjectWPF
+﻿namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// 
+    /// ATTENDANCE ENTITIES
+    /// 
+    /// </summary>
     class Attendance
     {
         private int id;
@@ -14,6 +17,7 @@ namespace ConferenceProjectWPF
         private string session_speaker;
         private string timeslot;
         private string date;
+        private int capacity;
 
         public int Id { get { return id; } set { id = value; } }
         public int Count_beg { get { return count_beg; } set { count_beg = value; } }
@@ -25,6 +29,7 @@ namespace ConferenceProjectWPF
         public string Session_speaker { get { return session_speaker; } set { session_speaker = value; } }
         public string Timeslot { get { return timeslot; } set { timeslot = value; } }
         public string Date { get { return date; } set { date = value; } }
+        public int Capacity { get { return capacity; } set { capacity = value; } }
         
 
 

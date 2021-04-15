@@ -4,6 +4,15 @@ namespace ConferenceProjectWPF
 {
     class SessionTestData
     {
+        /// <summary>
+        /// DATA USED FOR TESTING SESSIONS
+        /// 
+        /// USED FOR DUMMY DATA SO WE DONT HAVE TO CONSTANTLY ACCESS THE DATABASE ON TESTING PHRASE
+        /// 
+        ///  DONT NOT DELETE IT ITS USED FOR TESTING
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Session> dataFill()
         {
 

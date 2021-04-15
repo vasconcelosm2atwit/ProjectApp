@@ -11,15 +11,19 @@ using System.Windows.Data;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// HANDLES LOGIC AND DATA MANAGEMENT FOR SPEAKER
+    /// </summary>
     class SpeakerViewModel : Model
     {
-        public ObservableCollection<Speaker> Speakers{ get; set; }
+        public ObservableCollection<Speaker> Speakers{ get; set; } 
         public ICollectionView SpeakersCollection { get; set; }
-        SpeakerDatabaseManager db;
+
+        SpeakerDatabaseManager db; 
 
         private string _speakerFilter = string.Empty;
 
-        public string SpeakerFilter
+        public string SpeakerFilter // FILTER SPEAKER BY NAME
         {
             get
             {
@@ -33,7 +37,7 @@ namespace ConferenceProjectWPF
             }
         }
 
-        public Speaker SelectedItem { get; set; }
+        public Speaker SelectedItem { get; set; } // HOLDS SELECTED OBJECT
 
         public SpeakerViewModel()
         {
@@ -76,7 +80,6 @@ namespace ConferenceProjectWPF
         {
             bool isError = false;
             
-
             try
             {
                 db.deleteSpeaker(this.SelectedItem);
@@ -96,7 +99,6 @@ namespace ConferenceProjectWPF
         {
             bool isError = false;
             
-
             try
             {
                 db.addSpeaker(speaker);
@@ -111,6 +113,11 @@ namespace ConferenceProjectWPF
             Speakers.Add(speaker);
             return isError;
         }
+        /// <summary>
+        /// CHECKS IF A SPEAKER ALREADY EXIST ON CURRENT LIST
+        /// </summary>
+        /// <param name="speaker"></param>
+        /// <returns></returns>
         public bool AlreadyExist(Speaker speaker)
         {
             foreach (Speaker t in Speakers)
@@ -122,7 +129,6 @@ namespace ConferenceProjectWPF
             }
 
             return false;
-
         }
 
         public bool checkForDuplicates()
@@ -147,6 +153,11 @@ namespace ConferenceProjectWPF
             return dups.Any();
         }
 
+        /// <summary>
+        /// FORMATS PHONE NUMBER
+        /// </summary>
+        /// <param name="telNo"></param>
+        /// <returns></returns>
         public string formartPhoneNumber(string telNo)
         {
             return String.Format("{0:(###) ###-####}", double.Parse(telNo));  

@@ -54,7 +54,7 @@
                             TextWrapping="Wrap" />
                         <TextBlock
                             FontSize="12"
-                            Text="9:00 AM - 10:00 AM"
+                            Text="9:00 AM - 12:00 PM"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </StackPanel>
@@ -75,7 +75,7 @@
                             TextWrapping="Wrap" />
                         <TextBlock
                             FontSize="12"
-                            Text="10:15 AM - 11:15 AM"
+                            Text="12:00 PM - 3:00 PM"
                             TextAlignment="Center"
                             TextWrapping="Wrap" />
                     </StackPanel>
@@ -96,7 +96,7 @@
                             TextWrapping="Wrap" />
                         <TextBlock
                             FontSize="12"
-                            Text="11:30 AM - 12:30 AM"
+                            Text="3:00 PM - 7:00 PM"
                             TextAlignment="Center" />
                     </StackPanel>
                 </materialDesign:Card>
@@ -217,13 +217,18 @@
                                                     Text="{Binding Timeslot_1}"
                                                     TextWrapping="Wrap" />
                                             </StackPanel>
-                                            <Button Margin="0,0,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
-                                                <materialDesign:PackIcon
+                                            <StackPanel
+                                                Margin="-13 10 0 0"
+                                                >
+                                                <Button Margin="0,0,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                                    Click="Button_Click">
+                                                    <materialDesign:PackIcon
                                                     Width="25"
                                                     Height="25"
                                                     Kind="AccountMultiplePlus" />
-                                            </Button>
-                                            <TextBlock Text="Attendance" Margin="-45  0 0 0" FontSize="10"/>
+                                                </Button>
+                                                <TextBlock Text="Add Count" FontSize="10"/>
+                                            </StackPanel>
                                         </StackPanel>
                                     </materialDesign:Card>
                                 </DataTemplate>
@@ -278,14 +283,20 @@
                                                         Text="{Binding Timeslot_1}"
                                                         TextWrapping="Wrap" />
                                                 </StackPanel>
-                                                <Button Margin="0,0,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
-                                                    <materialDesign:PackIcon
-                                                        Width="25"
-                                                        Height="25"
-                                                        Kind="AccountMultiplePlus" />
-                                                </Button>
-                                                
-                                                
+                                                <StackPanel
+                                                Margin="-13 10 0 0"
+                                                >
+                                                    <Button Margin="0,0,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                                    Click="Button_Click">
+                                                        <materialDesign:PackIcon
+                                                    Width="25"
+                                                    Height="25"
+                                                    Kind="AccountMultiplePlus" />
+                                                    </Button>
+                                                    <TextBlock Text="Add Count" FontSize="10"/>
+                                                </StackPanel>
+
+
                                             </StackPanel>
                                         </materialDesign:Card>
                                     </DataTemplate>

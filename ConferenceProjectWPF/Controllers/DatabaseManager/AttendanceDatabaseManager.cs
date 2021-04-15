@@ -2,12 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// HANDLES DATABASE CONNECTION FOR ATTENDANCE ENTITITY
+    /// </summary>
     class AttendanceDatabaseManager
     {
         string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
@@ -26,7 +26,13 @@ namespace ConferenceProjectWPF
                 mySqlCmdNewRooom.Parameters.AddWithValue("_count_end", count.Count_end);
                 mySqlCmdNewRooom.Parameters.AddWithValue("_session_id", count.Session_id);
 
-                mySqlCmdNewRooom.ExecuteNonQuery();
+                try
+                {
+                    mySqlCmdNewRooom.ExecuteNonQuery();
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 mysqlCon.Close();
 
             }
@@ -71,6 +77,7 @@ namespace ConferenceProjectWPF
                        
                         count.Session_title = session.Title;
                         count.Session_room = room.Name;
+                        count.Capacity = room.Capacity;
                         count.Session_speaker = speaker.Name;
                         count.Timeslot = timeslot.ConcatTimeSlot;
                         //Console.WriteLine(count.Timeslot);

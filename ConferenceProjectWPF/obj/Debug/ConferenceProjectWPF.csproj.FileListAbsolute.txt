@@ -212,3 +212,7 @@ C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\obj\D
 C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\obj\Debug\UI\LogPage.g.cs
 C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\obj\Debug\UI\AttendancePage.baml
 C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\obj\Debug\UI\LogPage.baml
+C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\bin\Debug\ConferenceProjectWPF.exe.manifest
+C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\bin\Debug\ConferenceProjectWPF.application
+C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\obj\Debug\ConferenceProjectWPF.exe.manifest
+C:\Users\vasconcelosm2\Desktop\SFE PROJECT\ProjectApp\ConferenceProjectWPF\obj\Debug\ConferenceProjectWPF.application

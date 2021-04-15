@@ -7,20 +7,26 @@ using System.Windows.Data;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// HANDLES ALL LOGIC AND DATA MANAGEMENT FOR ATTENDANCE
+    /// 
+    /// THIS CLASS ALLOWS CONNECTION FROM UI TO BACKEND FOR ATTENDANCE PAGE
+    /// 
+    /// </summary>
     class AttendanceViewModel : Model
     {
         public ObservableCollection<Attendance> Attendances { get; set; }
 
         public List<TimeSlot> timeslots { get; set; }
 
-        readonly AttendanceDatabaseManager db;
-        public ICollectionView AttendanceCollection { get; set; }
-        public Attendance SelectedItem { get; set; }
+        readonly AttendanceDatabaseManager db; 
+        public ICollectionView AttendanceCollection { get; set; } // CONSTANT UPDATED COLLECTION
+        public Attendance SelectedItem { get; set; } // HOLDS CURRENT SELECTED ITEM ON DATAGRID
 
         private string _attendanceFilter = string.Empty;
 
         private bool _IsChanged;
-        public bool IsChanged
+        public bool IsChanged // RETURNS TRUE IF ANY VALUE ON THE LIST IS CHANGED
         {
             get { return _IsChanged; }
             set { _IsChanged = value; onPropertyChanged(nameof(IsChanged)); }
@@ -47,7 +53,6 @@ namespace ConferenceProjectWPF
             this.AttendanceCollection = CollectionViewSource.GetDefaultView(this.Attendances);
             TimeSlotsDatabaseManager ts = new TimeSlotsDatabaseManager();
             timeslots = new List<TimeSlot>(ts.retrieveTimeSlots());
-
            
 
            // AttendanceCollection.Filter = post => AttendanceFilter == null || AttendanceFilter == ((Attendance)post).Timeslot;
@@ -58,7 +63,7 @@ namespace ConferenceProjectWPF
         }
 
         
-
+        
         public bool updateAttendance(Attendance attendance)
         {
             bool isError = false;

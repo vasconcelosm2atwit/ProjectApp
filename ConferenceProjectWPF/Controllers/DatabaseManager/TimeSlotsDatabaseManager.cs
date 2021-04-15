@@ -7,6 +7,9 @@ using System.Data;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// ACCESS TIMESLOT TABLE ON DATABASE FOR TIMESLOT ENTITY
+    /// </summary>
     class TimeSlotsDatabaseManager
     {
         string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
@@ -29,6 +32,11 @@ namespace ConferenceProjectWPF
             }
         }
 
+        /// <summary>
+        /// ACCESS TIME SLOT BY ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public TimeSlot get_timeslot_by_id(int id)
         {
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))

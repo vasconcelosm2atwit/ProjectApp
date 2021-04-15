@@ -5,6 +5,9 @@ using MySqlConnector;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// HANDLES DATABASE CONNECTION FOR ROOM TABLE AND ROOM ENTITY
+    /// </summary>
     class RoomsDatabaseManager
     {
         string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";

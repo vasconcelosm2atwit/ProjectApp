@@ -7,7 +7,9 @@ using System.Windows.Input;
 
 namespace ConferenceProjectWPF
 {
-    // handles the logic for timeslot
+    /// <summary>
+    /// HANDLES DATA AND LOGIC FOR TIME SLOT PAGE
+    /// </summary>
     class TimeslotViewModel : Model
     {
         public ObservableCollection<TimeSlot> TimeSlots { get; set; }

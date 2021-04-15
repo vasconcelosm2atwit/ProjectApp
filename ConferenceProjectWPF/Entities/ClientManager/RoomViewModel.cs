@@ -9,17 +9,22 @@ using System.Windows.Data;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// 
+    /// HANDLES ALL LOGIC AND DATA MANAGEMENT FOR THE ROOM PAGE 
+    /// 
+    /// </summary>
     class RoomViewModel : Model
     {
-        public ObservableCollection<Room> Rooms { get; set; }
+        public ObservableCollection<Room> Rooms { get; set; } // UPDATABLE LIST OF ROOM OBJECT
 
-        readonly RoomsDatabaseManager db;
-        public ICollectionView RoomsCollection { get; set; }
-        public Room SelectedItem { get; set; }
+        readonly RoomsDatabaseManager db; // ACCESS FROM DATABASE
+        public ICollectionView RoomsCollection { get; set; } // FOR FILTERING
+        public Room SelectedItem { get; set; } // HOLDS SELECTED ROOM
 
         private string _roomFilter = string.Empty;
 
-        public string RoomFilter
+        public string RoomFilter // ROOM FILTER
         {
             get
             {
@@ -106,6 +111,11 @@ namespace ConferenceProjectWPF
             return false;
         }
 
+        /// <summary>
+        /// CHECK IF ROOM EXIST ON LIST
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
         public bool AlreadyExist(Room room)
         {
             foreach (Room t in Rooms)

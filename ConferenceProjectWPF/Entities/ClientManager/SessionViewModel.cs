@@ -11,6 +11,9 @@ using System.Windows.Data;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// HANDLES SESSION PAGE DATA MANAGEMENT AND LOGIC
+    /// </summary>
     class SessionViewModel : Model
     {
 
@@ -39,26 +42,26 @@ namespace ConferenceProjectWPF
             }
         }
 
-        public Session SelectedItem { get; set; }
+        public Session SelectedItem { get; set; } // CURRENT SELECTED SESSION OBJECT
 
         public SessionViewModel()
         {
-           db = new SessionsDatabaseManager();
-           SessionTestData sessionTestData = new SessionTestData();
-           this.Sessions = new ObservableCollection<Session>(db.getSessions());
+            db = new SessionsDatabaseManager();
+            SessionTestData sessionTestData = new SessionTestData();
+            this.Sessions = new ObservableCollection<Session>(db.getSessions()); // GETS SESSION DATA FROM DB
 
 
-           this.dbList = new List<Session>(db.retrieveSessions());
+            this.dbList = new List<Session>(db.retrieveSessions());
 
 
-           this.SessionCollection = CollectionViewSource.GetDefaultView(this.Sessions);
+            this.SessionCollection = CollectionViewSource.GetDefaultView(this.Sessions);
 
             TimeSlotsDatabaseManager ts = new TimeSlotsDatabaseManager();
-           this.AvailableTimeSlots = new ObservableCollection<TimeSlot>(ts.retrieveTimeSlots());
-            
-            this.AvailableSpeakers = new ObservableCollection<Speaker>(db.getAllSpeakers());
+            this.AvailableTimeSlots = new ObservableCollection<TimeSlot>(ts.retrieveTimeSlots()); // ACESS TIME SLOTS
 
-            this.AvailableRooms = new ObservableCollection<Room>(db.getAllRooms());
+            this.AvailableSpeakers = new ObservableCollection<Speaker>(db.getAllSpeakers()); // GETS SPEAKERS
+
+            this.AvailableRooms = new ObservableCollection<Room>(db.getAllRooms()); // GET ROOMS
 
             SessionCollection.Filter = FilterSpeakers;
         }
@@ -69,7 +72,7 @@ namespace ConferenceProjectWPF
 
             try
             {
-                
+
                 db.addSession(session);
             }
             catch (Exception ex)
@@ -78,13 +81,13 @@ namespace ConferenceProjectWPF
                 Console.WriteLine(ex);
                 Console.WriteLine("Failed to update the Database ---  check error ABOVE");
             }
-            
+
             Sessions.Add(session);
             //return isError;
 
-            foreach(Session s in db.retrieveSessions())
+            foreach (Session s in db.retrieveSessions())
             {
-                if(session.Title == s.Title)
+                if (session.Title == s.Title)
                 {
                     return s.Id;
                 }
@@ -97,8 +100,8 @@ namespace ConferenceProjectWPF
         {
             if (obj is Session session)
             {
-               return session.Title.ToUpper().Contains(SessionFilter.ToUpper()) || session.Timeslot_1.ToUpper().Contains(SessionFilter.ToUpper()) ||
-                    session.Room_1.ToUpper().Contains(SessionFilter.ToUpper()) || session.Speaker_1.ToUpper().Contains(SessionFilter.ToUpper());
+                return session.Title.ToUpper().Contains(SessionFilter.ToUpper()) || session.Timeslot_1.ToUpper().Contains(SessionFilter.ToUpper()) ||
+                     session.Room_1.ToUpper().Contains(SessionFilter.ToUpper()) || session.Speaker_1.ToUpper().Contains(SessionFilter.ToUpper());
             }
             return false;
         }
@@ -151,7 +154,7 @@ namespace ConferenceProjectWPF
                 Console.WriteLine("Failed to update the Database ---  check error ABOVE");
             }
             Sessions.Remove(this.SelectedItem);
-            
+
 
 
             return isError;
@@ -159,14 +162,14 @@ namespace ConferenceProjectWPF
 
         public bool checkIfExists(Session s)
         {
-            
+
             s.RealDate = DateTime.Parse(s.Date);
-            foreach(Session i in dbList)
-            { 
+            foreach (Session i in dbList)
+            {
                 i.RealDate = DateTime.Parse(i.Date);
-                if ((s.Timeslot_1.Equals(i.Timeslot_1) && s.RealDate.Equals(i.RealDate)) &&  s.Room_1.Equals(i.Room_1))
+                if ((s.Timeslot_1.Equals(i.Timeslot_1) && s.RealDate.Equals(i.RealDate)) && s.Room_1.Equals(i.Room_1))
                 {
-                   
+
                     return true;
                 }
             }

@@ -7,6 +7,9 @@ using System.Data;
 
 namespace ConferenceProjectWPF
 {
+    /// <summary>
+    /// ACCESS SPEAKER DATABASE FOR SPEAKER TABLE AND SPEAKER ENTITY
+    /// </summary>
     class SpeakerDatabaseManager
     {
         string connectionString = @"Server=mydb.c6botwup9amq.us-east-2.rds.amazonaws.com;Database=projectconference;Uid=root;Pwd=password123;convert zero datetime=True";
@@ -62,6 +65,12 @@ namespace ConferenceProjectWPF
             }
         }
 
+        /// <summary>
+        /// RETRIEVE SPEAKER BY ID
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Speaker get_speaker_by_id(int id)
         {
             using (MySqlConnection mysqlCon = new MySqlConnection(connectionString))
